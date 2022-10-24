@@ -974,6 +974,23 @@ fieldset[disabled] .btn-neutral.active {
   color: #FFB236;
 }
 
+.password[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #44554B;
+  border: 0;
+  border-radius: 30px;
+  font-weight: bold;
+  color: #ffffff;
+  transition: background-color 0.2s;
+
+}
+.password[type="submit"]:hover {
+  background-color: #293d32;
+  transition: background-color 0.2s;
+}
+
 .btn-neutral.btn-warning:hover,
 .btn-neutral.btn-warning:focus,
 .btn-neutral.btn-warning:active,
