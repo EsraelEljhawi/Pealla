@@ -346,11 +346,11 @@ Copyright (c) 2015 Daniel Eden
 .navbar .navbar-nav>a.btn {
   border-width: 2px;
   font-weight: 400;
-  font-size: 0.8571em;
+  font-size: 16px;
   line-height: 1.35em;
   border: none;
   margin: 10px 1px;
-  border-radius: 0.1875rem;
+  border-radius: 50px;
   padding: 11px 22px;
   cursor: pointer;
   background-color: #888;
@@ -560,7 +560,8 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-  background-color: #f96332;
+  width: 50%;
+  background-color: #536b5d;
   color: #FFFFFF;
 }
 
@@ -575,10 +576,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
-  background-color: #fa7a50;
+  background-color: #44554B;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #fa7a50;
+  border-color: #44554B;
 }
 
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
