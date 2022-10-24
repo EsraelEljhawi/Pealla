@@ -15,7 +15,7 @@
 
 -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -25,6 +25,12 @@
   <title>
     Paella AdminPanel
   </title>
+  <!--STUFF RELATED TO FOOD CARDS-->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <!--THEY END HERE-->
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -36,7 +42,7 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="user-profile">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
       <!--
@@ -55,7 +61,7 @@
               <p>الرئيسية</p>
             </a>
           </li>
-          <li class="active ">
+          <li>
             <a href="./Usersinfo.html">
               <i class="now-ui-icons education_atom"></i>
               <p>عرض بيانات المستخدمين</p>
@@ -70,7 +76,7 @@
           <li>
             <a href="./ResturantInfo.html">
               <i class="now-ui-icons location_map-big"></i>
-              <p>عرض بيانات المطاعم</p>
+              <p>عرض بيانات المطاعم </p>
             </a>
           </li>
           <li>
@@ -79,7 +85,7 @@
               <p>عرض الشكاوى</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="./Offers.html">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>ادارة العروض</p>
@@ -92,9 +98,9 @@
             </a>
           </li>
           <li class="active-pro">
-            <a href="./Exit.html">
+            <a href="./upgrade.html">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>تسجيل الخروج</p>
+              <p>Upgrade to PRO</p>
             </a>
           </li>
         </ul>
@@ -112,7 +118,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Icons</a>
+            <a class="navbar-brand" href="#pablo">ادارة العروض</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -162,7 +168,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> 
       </nav>
       <!-- End Navbar -->
       <div class="panel-header panel-header-sm">
@@ -172,23 +178,50 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">100 Awesome Nucleo Icons</h5>
-                <p class="category">Handcrafted by our friends from <a href="https://nucleoapp.com/?ref=1712">NucleoApp</a></p>
+                <h5 dir="rtl" class="title">العروض</h5>
               </div>
               <div class="card-body all-icons">
                 <div class="row">
-                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+
+
+                  <div class="font-icon-list col-lg-2 col-lg-3 col-lg-4 col-xs-6 col-xs-6">
                     <div class="font-icon-detail">
-                      <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                      <p>arrows-1_cloud-download-93</p>
+                      <!--THE SECTION STARTS HERE-->
+                        <div class="container">
+                          <br>
+                          <br>
+                              <div class="food-card bg-white rounded-lg overflow-hidden mb-4 shadow">
+                                <div class="food-card_img position-relative">
+                                  <img src="../assets/img/food2.jpg" alt="">
+                                </div>
+                                <div class="food-card_content">
+                                  <div class="food-card_title-section overflow-hidden">
+                                    <h4 class="food-card_title"><a href="#!" class="text-dark"></a>برغر دجاج</h4>
+                                    <div class="d-flex justify-content-between">
+                                      <a href="#!" class="food-card_author">Burger</a>
+                                    </div>
+                                  </div>
+                                  <div class="food-card_bottom-section">
+                                    <div class="d-flex justify-content-between"> 
+                                      <div><span class="fa fa-fire"></span>اسم المطعم</div>
+                                      <div>
+                                        <span class="badge badge-success">بيانات</span>
+                                      </div>
+                                    </div>
+                                  </div>							
+                                </div>
+                              </div>
+                      <!--THE SECTION ENDS HERE-->
                     </div>
                   </div>
-                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-                    <div class="font-icon-detail">
-                      <i class="now-ui-icons arrows-1_cloud-upload-94"></i>
-                      <p>arrows-1_cloud-upload-94</p>
-                    </div>
-                  </div>
+
+
+
+
+
+
+
+                  <!--
                   <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
                     <div class="font-icon-detail">
                       <i class="now-ui-icons arrows-1_minimal-down"></i>
@@ -776,7 +809,7 @@
                       <i class="now-ui-icons users_single-02"></i>
                       <p>users_single-02</p>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
