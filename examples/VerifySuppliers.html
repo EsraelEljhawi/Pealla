@@ -36,7 +36,7 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="user-profile">
+<body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
       <!--
@@ -59,6 +59,7 @@
             </a>
           </li>
           <li>
+            <li>
             <a href="./Usersinfo.html">
               <i class="now-ui-icons location_map-big"></i>
               <p>عرض بيانات المستخدمين</p>
@@ -76,7 +77,7 @@
               <p>عرض بيانات الموفرين </p>
             </a>
           </li>
-          <li class="active ">
+          <li>
             <a href="./complaint.html">
               <i class="now-ui-icons ui-2_chat-round"></i>
               <p>عرض الشكاوى</p>
@@ -94,7 +95,7 @@
               <p>تفعيل الجمعيات</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="./VerifySuppliers.html">
               <i class="now-ui-icons business_badge"></i>
               <p>تفعيل الموفرين</p>
@@ -128,7 +129,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">User Profile</a>
+            <a class="navbar-brand" href="#pablo">واجهة تفعيل حسابات الموفرين</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -185,47 +186,265 @@
       </div>
       <div class="content">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title" style="text-align:center;">الشكاوى</h5>
-
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-                <img src="../assets/img/bg5.jpg" alt="...">
+                <!-- removed class="card-title" from h4 and added class="text-right"-->
+                <h4  class="text-right">تفعيل حسابات الموفرين</h4>
               </div>
               <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                    <h5 class="title">Mike Andrew</h5>
-                  </a>
-                  <p class="description">
-                    michael24
-                  </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        <!--nothing to write above delete buttons-->
+                      </th>
+                      <th>
+                        البريد الإلكتروني
+                      </th>
+                      <th>
+                        رقم الهاتف
+                      </th>
+                      <th class="text-right">
+                        إسم المستخدم
+                      </th>
+                    </thead>
+                    <!--START A COOMENT FROM HERE-->
+                    <tbody>
+                      <tr>
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                           NAME
+                        </td>
+                      </tr>
+                      <tr>      
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                           NAME
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                           NAME
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                          NAME
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                          NAME
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                          NAME
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button>تفعيـل</button>
+                        </td>
+                        <td>
+                          EMAIL
+                        </td>
+                        <td>
+                          NUMBER
+                        </td>
+                        <td class="text-right">
+                          NAME
+                        </td>
+                      </tr> 
+                    </tbody> <!--TO HERE TO EMPTY THE TABLE-->
+                  </table>
                 </div>
-                <p class="description text-center">
-                  "Lamborghini Mercy <br>
-                  Your chick she so thirsty <br>
-                  I'm in that two seat Lambo"
-                </p>
-              </div>
-              <hr>
-              <div class="button-container">
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-google-plus-g"></i>
-                </button>
               </div>
             </div>
           </div>
+<!--ANOTHER TABLE STYLE-->
+          <!--
+          <div class="col-md-12">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h4 class="card-title"> Table on Plain Background</h4>
+                <p class="category"> Here is a subtitle for this table</p>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Name
+                      </th>
+                      <th>
+                        البريد الالكتروني
+                      </th>
+                      <th>
+                        الرقم
+                      </th>
+                      <th class="text-right">
+                        اسم الجمعية
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <button>حذف</button>
+                        </td>
+                        <td>
+                          Niger
+                        </td>
+                        <td>
+                          Oud-Turnhout
+                        </td>
+                        <td class="text-right">
+                          $36,738
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Minerva Hooper
+                        </td>
+                        <td>
+                          Curaçao
+                        </td>
+                        <td>
+                          Sinaai-Waas
+                        </td>
+                        <td class="text-right">
+                          $23,789
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Sage Rodriguez
+                        </td>
+                        <td>
+                          Netherlands
+                        </td>
+                        <td>
+                          Baileux
+                        </td>
+                        <td class="text-right">
+                          $56,142
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Philip Chaney
+                        </td>
+                        <td>
+                          Korea, South
+                        </td>
+                        <td>
+                          Overland Park
+                        </td>
+                        <td class="text-right">
+                          $38,735
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Doris Greene
+                        </td>
+                        <td>
+                          Malawi
+                        </td>
+                        <td>
+                          Feldkirchen in Kärnten
+                        </td>
+                        <td class="text-right">
+                          $63,542
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Mason Porter
+                        </td>
+                        <td>
+                          Chile
+                        </td>
+                        <td>
+                          Gloucester
+                        </td>
+                        <td class="text-right">
+                          $78,615
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Jon Porter
+                        </td>
+                        <td>
+                          Portugal
+                        </td>
+                        <td>
+                          Gloucester
+                        </td>
+                        <td class="text-right">
+                          $98,615
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
       <footer class="footer">
