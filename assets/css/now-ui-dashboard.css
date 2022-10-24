@@ -974,16 +974,27 @@ fieldset[disabled] .btn-neutral.active {
   color: #FFB236;
 }
 
+.password-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .password[type="submit"] {
   width: 100%;
   padding: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: #44554B;
   border: 0;
   border-radius: 30px;
   font-weight: bold;
   color: #ffffff;
   transition: background-color 0.2s;
+  margin-bottom: 20px;
+
 
 }
 .password[type="submit"]:hover {
@@ -1339,12 +1350,13 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control {
+  text-align: right;
   background-color: transparent;
   border: 1px solid #E3E3E3;
   border-radius: 30px;
   color: #2c2c2c;
   line-height: normal;
-  height: auto;
+  height: 45px;
   font-size: 0.8571em;
   -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -2490,7 +2502,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .navbar .navbar-brand {
   text-transform: uppercase;
-  font-size: 0.8571em;
+  font-size: 20px;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   line-height: 1.625rem;
@@ -3938,6 +3950,7 @@ Created using IcoMoon - icomoon.io
 
 .sidebar .nav p,
 .off-canvas-sidebar .nav p {
+  font-size: 17px;
   margin: 0;
   line-height: 30px;
   position: relative;
@@ -4637,7 +4650,7 @@ Created using IcoMoon - icomoon.io
 
 .card .card-header {
   padding: 15px 15px 0;
-  border: 0;
+  border: 0px;
 }
 
 .card .card-header:not([data-background-color]) {
@@ -4699,10 +4712,12 @@ Created using IcoMoon - icomoon.io
 }
 
 .card label {
-  font-size: 0.8571em;
+  font-size: 18px;
   margin-bottom: 5px;
-  color: #9A9A9A;
+  color: #2d2d2d;
 }
+
+
 
 .card .card-footer {
   background-color: transparent;
