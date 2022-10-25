@@ -6,6 +6,8 @@
   "author": "Creative Tim",
   "license": "Creative Tim License <www.creative-tim.com/license>",
   "devDependencies": {
+   
+    "firebase": "^9.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean": "^0.4.0",
