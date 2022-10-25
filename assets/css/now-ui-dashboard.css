@@ -4136,8 +4136,8 @@ Created using IcoMoon - icomoon.io
 .off-canvas-sidebar[data-color="orange"]:after {
   background: #ffbe9f;
   /* fallback for old browsers */
-  background: -webkit-gradient(linear, left top, right top, from(#44554B), color-stop(60%, #658070), to(#8cb09b));
-  background: linear-gradient(to right, #ffbe9f 0%, #ffbe9f 45%, #ffbe9f 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#ffbe9f), color-stop(60%, #ffbe9f), to(#ffceae));
+  background: linear-gradient(to right, #ffbe9f 0%, #ffbe9f 60%, #ffceae 100%);
 }
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]),
