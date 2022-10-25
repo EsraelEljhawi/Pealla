@@ -3933,14 +3933,14 @@ Created using IcoMoon - icomoon.io
 .sidebar .nav li:focus:not(.active)>a,
 .off-canvas-sidebar .nav li:hover:not(.active)>a,
 .off-canvas-sidebar .nav li:focus:not(.active)>a {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.214);
 }
 
 .sidebar .nav li:hover:not(.active)>a i,
 .sidebar .nav li:focus:not(.active)>a i,
 .off-canvas-sidebar .nav li:hover:not(.active)>a i,
 .off-canvas-sidebar .nav li:focus:not(.active)>a i {
-  color: #FFFFFF;
+  color: #44554B;
 }
 
 .sidebar .nav li.active>a,
@@ -3952,12 +3952,14 @@ Created using IcoMoon - icomoon.io
 .sidebar .nav p,
 .off-canvas-sidebar .nav p {
   font-size: 17px;
+  font-weight: bold;
   margin: 0;
   line-height: 30px;
   position: relative;
   display: block;
   height: auto;
   white-space: nowrap;
+  color: #44554B;
 }
 
 .sidebar .nav i,
@@ -3968,7 +3970,7 @@ Created using IcoMoon - icomoon.io
   line-height: 30px;
   width: 34px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: #44554B;
   position: relative;
 }
 
@@ -4000,7 +4002,6 @@ Created using IcoMoon - icomoon.io
 .sidebar .logo,
 .off-canvas-sidebar .logo {
   position: relative;
-  padding: 0.5rem 0.7rem;
   z-index: 4;
 }
 
@@ -4133,17 +4134,20 @@ Created using IcoMoon - icomoon.io
 
 .sidebar[data-color="orange"]:after,
 .off-canvas-sidebar[data-color="orange"]:after {
-  background: #ffbe9d;
+  background: #ffbe9f;
+  /* fallback for old browsers */
+  background: -webkit-gradient(linear, left top, right top, from(#44554B), color-stop(60%, #658070), to(#8cb09b));
+  background: linear-gradient(to right, #ffbe9f 0%, #ffbe9f 45%, #ffbe9f 100%);
 }
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]),
 .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) {
-  color: #ffbe9d;
+  color: #44554B;
 }
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i,
 .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i {
-  color: #ffbe9d;
+  color: #44554B;
 }
 
 .sidebar[data-color="red"]:after,
@@ -4237,10 +4241,10 @@ Created using IcoMoon - icomoon.io
   height: 260px;
   padding-top: 80px;
   padding-bottom: 45px;
-  background: #141E30;
+  background: #44554B;
   /* fallback for old browsers */
-  background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
-  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#44554B), color-stop(60%, #658070), to(#8cb09b));
+  background: linear-gradient(to right, #44554B 0%, #658070 60%, #8cb09b 100%);
   position: relative;
   overflow: hidden;
 }
