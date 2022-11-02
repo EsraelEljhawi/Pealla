@@ -1,19 +1,4 @@
-<!--
 
-=========================================================
-* Now UI Dashboard - v1.5.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Designed by www.invisionapp.com Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,11 +22,14 @@
 </head>
 
 <body class="">
+  
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
+    
+  <script type="module" src="../src/index.js"></script>
     <div class="logo">
       <img src="../assets/img/Logo-Paella.png">
       </div>
@@ -134,10 +122,11 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form>
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
+                <input type="text" value="" class="form-control" id="search_box" onkeyup="searchData()" placeholder="Search..." >
                 <div class="input-group-append">
+                  
                   <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                    <button class="now-ui-icons ui-1_zoom-bold" id="search" style="border:none ;" ></button>
                   </div>
                 </div>
               </div>
@@ -158,7 +147,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="table">
                     <thead class=" text-primary">
                       <th>
                         <!--nothing to write above delete buttons-->
@@ -174,246 +163,54 @@
                       </th>
                     </thead>
                     <!--START A COOMENT FROM HERE-->
-                    <tbody>
-                      <tr>
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                           NAME
-                        </td>
-                      </tr>
-                      <tr>      
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                           NAME
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                           NAME
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                          NAME
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                          NAME
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                          NAME
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <button class="btn btn-primary btn-block">حـذف</button>
-                        </td>
-                        <td>
-                          EMAIL
-                        </td>
-                        <td>
-                          NUMBER
-                        </td>
-                        <td class="text-right">
-                          NAME
-                        </td>
-                      </tr> 
+                    <tbody id="TableBody">
+                      <script>
+                        const searchData=()=>{
+                        var search_box,filter,table,tr,td,i,txtValue;
+                        search_box=document.getElementById("search_box");
+                        filter=search_box.value.toUpperCase();
+                        
+                        table=document.getElementById("table");
+                        tr=table.getElementsByTagName("tr");
+
+                        for (i = 0; i < tr.length; i++) {
+                          td = tr[i].getElementsByTagName("td")[3];
+                          
+                          if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                              
+                              
+                              tr[i].style.display = "";
+                              
+                              
+                            }
+                            else{
+                              tr[i].style.display = "none";
+                            }
+                          }
+
+                          
+                        }
+
+                        }
+                        
+                        </script>
+                           
+                      
                     </tbody> <!--TO HERE TO EMPTY THE TABLE-->
                   </table>
                 </div>
               </div>
             </div>
           </div>
-<!--ANOTHER TABLE STYLE-->
-          <!--
-          <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="card-title"> Table on Plain Background</h4>
-                <p class="category"> Here is a subtitle for this table</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        البريد الالكتروني
-                      </th>
-                      <th>
-                        الرقم
-                      </th>
-                      <th class="text-right">
-                        اسم الجمعية
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <button>حذف</button>
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Philip Chaney
-                        </td>
-                        <td>
-                          Korea, South
-                        </td>
-                        <td>
-                          Overland Park
-                        </td>
-                        <td class="text-right">
-                          $38,735
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Jon Porter
-                        </td>
-                        <td>
-                          Portugal
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $98,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div> -->
+
         </div>
       </div>
       
     </div>
   </div>
+  <!--dara-->
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -425,9 +222,9 @@
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+  
+  
+ 
 </body>
 
 </html>
