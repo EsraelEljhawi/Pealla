@@ -57,8 +57,8 @@ function writeUserData(userId, name, email, imageUrl) {
         console.log('sucess');
     });
   }
- //writeUserData('11', 'sara', 'sara@gmail.com', '0912752064');
-
+ //writeUserData('12', 'esra', 'sara@gmail.com', '0912752064');
+//read data in at the table :)
  const db = getDatabase();
 const userRef= ref(db, 'users/');
 onValue(userRef, (snapshot) => {
