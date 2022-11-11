@@ -18,15 +18,24 @@ function resetPass() {
     var email = document.getElementById("emailX").value;
     var oldpass = document.getElementById("oldpass").value;
     var newpass = document.getElementById("newpass").value;
+
   
     var cred = firebase.auth.EmailAuthProvider.credential(email, oldpass);
-  
+    
     auth.currentUser.reauthenticateWithCredential(cred)
+    .then(() => {
+        console.log("Success: Authentication completed!");
+        return auth.currentUser.updatePassword(newpass);
+    })
+    .then(() => console.log("Success: Password is updated!"))
+    .catch((er) => console.error("Error: " + er.message));
+  
+  /*  auth.currentUser.reauthenticateWithCredential(cred)
         .then(() =>  console.log("Success: Authentication completed!"))
         .catch((er) => console.error("Error: " + er.message));
   
     auth.currentUser.updatePassword(newpass)
         .then(() => console.log("Success: Password is updated!"))
-        .catch((err) => console.error("Error: Password updation failed. " + err.message));
+        .catch((err) => console.error("Error: Password updation failed. " + err.message)); */
   }
   
