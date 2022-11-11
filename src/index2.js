@@ -54,10 +54,6 @@ form.addEventListener("submit", event => {
 
 
 
-
-
-
-
 /*
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
 
