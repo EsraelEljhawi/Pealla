@@ -21,7 +21,7 @@ function resetPass() {
 
   
     var cred = firebase.auth.EmailAuthProvider.credential(email, oldpass);
-    
+     /* from stack overflow */
     auth.currentUser.reauthenticateWithCredential(cred)
     .then(() => {
         console.log("Success: Authentication completed!");
