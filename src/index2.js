@@ -32,27 +32,24 @@ form.addEventListener("submit", event => {
         })
         .catch(function (error) {
             // Handle Errors here.
+           // alert(error); 
+           document.getElementById('error_message').innerHTML = error;
             let errorCode = error.code;
-            let errorMessage = error.message;
-            let html = `<p><b>Ooops!</b> Could not sign you in!</p>
+            let errorMessage = error.message; 
+            /*let html = `<p><b>Ooops!</b> Could not sign you in!</p>
                         <ol>
                             <li>You <b>forgot your password</b>; contact the admin or</li>
                             <li>Your email <b>is not registered</b> to use this App.</li>
-                        </ol>
-            `;
+                        </ol>`;
             
-          /*  info.innerHTML = html;
+            info.innerHTML = html;
             setTimeout(() => {
                 info.innerHTML = ``;
             }, 8000); */
         });
-
     // reset form
-    form.reset();
+   form.reset(); 
 });
-
-
-
 
 
 

@@ -91,6 +91,7 @@ onValue(userRef, (snapshot) => {
  let deleteButtons=document.querySelectorAll("#delete");
  deleteButtons.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click",()=>{
+       // confirm("are you sure you want to delete this?")
         let userId=deleteBtn.parentElement.parentElement.dataset.id;
         remove(ref(db,"users/"+userId))
         .then(()=>{
