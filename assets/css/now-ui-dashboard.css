@@ -350,7 +350,7 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.35em;
   border: none;
   margin: 10px 1px;
-  border-radius: 50px;
+  border-radius: 15px;
   padding: 11px 22px;
   cursor: pointer;
   background-color: #888;
@@ -561,7 +561,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 
 .btn-primary {
   width: 50%;
-  background-color: #536b5d;
+  background-color: #f64542;
   color: #FFFFFF;
 }
 
@@ -576,12 +576,54 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
+  background-color: #ff0400;
+  color: #FFFFFF;
+  box-shadow: none;
+  border-color: #f64542;
+}
+.btn2-primary {
+  width: 100%;
+  background-color: #506258;
+  color: #FFFFFF;
+}
+.btn2-primary:hover,
+.btn2-primary:focus,
+.btn2-primary:not(:disabled):not(.disabled):active,
+.btn2-primary:not(:disabled):not(.disabled).active,
+.btn2-primary:not(:disabled):not(.disabled):active:focus,
+.btn2-primary:not(:disabled):not(.disabled).active:focus,
+.btn2-primary:active:hover,
+.btn2-primary.active:hover,
+.show>.btn2-primary.dropdown-toggle,
+.show>.btn2-primary.dropdown-toggle:focus,
+.show>.btn2-primary.dropdown-toggle:hover {
   background-color: #44554B;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #44554B;
+  border-color: #506258;
+}
+.btn3-primary {
+  width: 100%;
+  background-color: #f64542;
+  color: #FFFFFF;
 }
 
+.btn3-primary:hover,
+.btn3-primary:focus,
+.btn3-primary:not(:disabled):not(.disabled):active,
+.btn3-primary:not(:disabled):not(.disabled).active,
+.btn3-primary:not(:disabled):not(.disabled):active:focus,
+.btn3-primary:not(:disabled):not(.disabled).active:focus,
+.btn3-primary:active:hover,
+.btn3-primary.active:hover,
+.show>.btn3-primary.dropdown-toggle,
+.show>.btn3-primary.dropdown-toggle:focus,
+.show>.btn3-primary.dropdown-toggle:hover {
+  background-color: #ff0400;
+  color: #FFFFFF;
+  box-shadow: none;
+  border-color: #f64542;
+}
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
 }
