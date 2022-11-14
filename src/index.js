@@ -44,7 +44,7 @@
 
 
 
-
+/*
 //to write
 function writeUserData(userId, name, email, imageUrl) {
     
@@ -59,12 +59,14 @@ function writeUserData(userId, name, email, imageUrl) {
   }
  //writeUserData('12', 'esra', 'sara@gmail.com', '0912752064');
 //read data in at the table :)
+*/
+
  const db = getDatabase();
-const userRef= ref(db, 'users/');
+const userRef= ref(db, 'Users/');
 onValue(userRef, (snapshot) => {
     tableBody.innerHTML+="";
-  const users = snapshot.val();
-  for (const user in users) {
+  const Users = snapshot.val();
+  for (const user in Users) {
     //console.log(users[user]);
     let tr=`
     <tr data-id=${user} id="tr">
@@ -72,13 +74,16 @@ onValue(userRef, (snapshot) => {
                           <button class="btn btn-primary btn-block" id="delete" class="delete">حـذف</button>
                         </td>
                         <td>
-                        ${users[user].email}
+                        ${Users[user].password}
                         </td>
                         <td>
-                        ${users[user].profile_picture}
+                        ${Users[user].email}
+                        </td>
+                        <td>
+                        ${Users[user].phone}
                         </td>
                         <td class="text-right">
-                           ${users[user].username}
+                           ${Users[user].username}
                         </td>
                       </tr>
                       
@@ -92,8 +97,8 @@ onValue(userRef, (snapshot) => {
  deleteButtons.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click",()=>{
        // confirm("are you sure you want to delete this?")
-        let userId=deleteBtn.parentElement.parentElement.dataset.id;
-        remove(ref(db,"users/"+userId))
+        let username=deleteBtn.parentElement.parentElement.dataset.id;
+        remove(ref(db,"Users/"+username))
         .then(()=>{
             
             

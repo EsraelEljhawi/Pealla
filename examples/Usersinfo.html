@@ -153,10 +153,13 @@
                         <!--nothing to write above delete buttons-->
                       </th>
                       <th>
+                        الرقم السري
+                      </th>
+                      <th>
                         البريد الإلكتروني
                       </th>
                       <th>
-                        رقم الهاتف
+                        رقم الهاتف المحمول
                       </th>
                       <th class="text-right">
                         إسم المستخدم
@@ -164,7 +167,7 @@
                     </thead>
                     <!--START A COOMENT FROM HERE-->
                     <tbody id="TableBody">
-                      <script>
+                     <script>
                         const searchData=()=>{
                         var search_box,filter,table,tr,td,i,txtValue;
                         search_box=document.getElementById("search_box");
@@ -174,7 +177,7 @@
                         tr=table.getElementsByTagName("tr");
 
                         for (i = 0; i < tr.length; i++) {
-                          td = tr[i].getElementsByTagName("td")[3];
+                          td = tr[i].getElementsByTagName("td")[4];
                           
                           if (td) {
                             txtValue = td.textContent || td.innerText;
@@ -190,12 +193,12 @@
                             }
                           }
 
-                          
                         }
 
                         }
                         
                         </script>
+              
                            
                       
                     </tbody> <!--TO HERE TO EMPTY THE TABLE-->
