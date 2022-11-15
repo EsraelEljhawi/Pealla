@@ -52,6 +52,31 @@ form.addEventListener("submit", event => {
 });
 
 
+function resetPass(){
+
+  var email = document.getElementById("emailX").value;
+  var oldpass = document.getElementById("oldpass").value;
+  var newpass = document.getElementById("newpass").value;
+  
+ 
+    firebase.auth().signInWithEmailAndPassword(email, oldpass)
+        {
+           // console.log(`Successfully signed in!`);            
+            alert("success");
+         //   var user = firebase.auth().currentUser;
+         //   alert(user); 
+ 
+ /*           user.updatePassword(newpass).then(function() {
+              // Update successful.
+              alert("done")
+            }).catch(function(error) {
+              // An error happened.
+              alert(error);
+            }); */
+        }
+  
+}
+
 
 
 
