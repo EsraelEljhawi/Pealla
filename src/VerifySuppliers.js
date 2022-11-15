@@ -62,6 +62,9 @@ let tr=`
                     ${Suppliers[supplier].password}
                     </td>
                     <td>
+                    ${Suppliers[supplier].phone}
+                    </td>
+                    <td>
                     ${Suppliers[supplier].accountType}
                     </td>
                     <td class="text-right">
