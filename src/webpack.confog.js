@@ -1,5 +1,6 @@
+const { watch } = require('fs');
 const path = require('path');
-
+watch:true,
 module.exports = {
   mode:'development',
   devtool:'eval-source-map',

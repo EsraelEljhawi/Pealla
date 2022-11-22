@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+
+
+  <body class="text-right">
+
+    <div class="center">
+
+      <h1>مرحبا بك !</h1>
+       <div id="not-logged-in">
+      <form class="signin">                       
+        <!-- onsubmit="login(event)"> removed method="post"-->
+
+        <div class="txt_field">
+          <input type="email" id="email" required>
+          <span></span>
+          <label>البريد الالكتروني</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" id="password" required> <!--changed id from pass to password-->
+          <span></span>
+          <label>كلمة المرور</label>
+        </div> 
+        <button class="submit" type="submit" id="signin">تسجيل الدخول</button>
+        <span style="color: rgb(222, 28, 28);" id="error_message" class="txt_field"></span>
+       <!-- <input type="submit" value="تسجيل الدخول" id="submit"> -->
+
+      </form>
+       </div>
+<!--
+       <div id="logged-in">
+        <h3>YOURE LOGGED IN!</h3>
+        <button onclick="logout()">Log out</button>
+       </div> -->
+       
+    </div>
+
+     <script src="./try.js" type="module"></script> <!--removed type="module"-->
+     
+
+  </body>
+
+
+</html>
