@@ -48,16 +48,13 @@ onValue(supplierRef, (snapshot) => {
 tableBody.innerHTML+="";
 const Suppliers = snapshot.val();
 for (const supplier in Suppliers) {
-if(Suppliers[supplier].active=="false")
+if(Suppliers[supplier].active!='false')
 {
   let tr=`
 <tr data-id=${supplier} id="tr">
                     <td>
                       <button class="btn btn3-primary btn-block" id="delete" class="delete">حـذف</button>
                     </td>
-                    <td>
-                    <button class="btn btn2-primary btn-block" id="edit" class="edit">تفعيل</button>
-                  </td>
                     <td id="email"class="email">
                     ${Suppliers[supplier].email}
                     </td>
@@ -80,10 +77,6 @@ tableBody.innerHTML+=tr;
 
 
 }
-else{
-  
-
-}
 
 
 }
@@ -104,49 +97,6 @@ deleteBtn.addEventListener("click",()=>{
 });
 
 })
-
-let editButtons=document.querySelectorAll("#edit");
-editButtons.forEach(editBtn=>{
-  editBtn.addEventListener("click",()=>{
-    let username=editBtn.parentElement.parentElement.dataset.id;
-    const starCountRef = ref(db, 'Suppliers/' + username);
-      var active=true;
-      update(ref(db, 'Suppliers/' + username),{
-        active: active,
-        username: username,
-        })
-        alert('تم تفعيل الموفر');
-        tableBody.innerHTML+="";
-        //add authentication
-        //
-        const auth = getAuth(app);
-        onValue(starCountRef, (snapshot) => {
-          const data = snapshot.val(); // data = all data on firebse
-          var email = data.email;
-          var password = data.password;
-          createUserWithEmailAndPassword(auth, email, password)
-          
-          .then((userCredential) => {
-           // Signed in 
-           
-          const user = userCredential.user;
-           // ...
-           set(supplierRef+user),{
-            username:username,
-            email:email,
-            password:password,
-           }
-          })
-        .catch((error) => {
-           const errorCode = error.code;
-          const errorMessage = error.message;
-      // ..
-    });
-        });
-      
-      });
-  
-});
 
 
 });
