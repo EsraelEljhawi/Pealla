@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
 
 
 import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import { getAuth, deleteUser,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -48,7 +48,7 @@ onValue(supplierRef, (snapshot) => {
 tableBody.innerHTML+="";
 const Suppliers = snapshot.val();
 for (const supplier in Suppliers) {
-if(Suppliers[supplier].active!='false')
+if(Suppliers[supplier].active=='true')
 {
   let tr=`
 <tr data-id=${supplier} id="tr">
@@ -86,11 +86,42 @@ deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
    // confirm("are you sure you want to delete this?")
     let username=deleteBtn.parentElement.parentElement.dataset.id;
-    remove(ref(db,"Suppliers/"+username))
-    .then(()=>{
+     remove(ref(db,"Suppliers/"+username))
+     .then(()=>{
         
+      const auth = getAuth();
+       const starCountRef = ref(db, 'Suppliers/' + username);
+      onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        var email=data.email;
+        var password=data.password;
         
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log('success');
+        // Signed in 
+      //  const user = userCredential.user;
+      //  console.log(user);
+       // ...
+       const auth = getAuth();
+       const user = auth.currentUser;
+      console.log(user);
+      deleteUser(user).then(() => {
+        console.log('deleted');
+        // User deleted.
+      }).catch((error) => {
+        // An error ocurred
+        // ...
+      });
         window.location.reload()
+      })
+      })
+      
+      .catch((error) => {
+       const errorCode = error.code;
+       const errorMessage = error.message;
+      });
+      
         
     })
     

@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
 
 
 import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -110,10 +110,9 @@ editButtons.forEach(editBtn=>{
   editBtn.addEventListener("click",()=>{
     let username=editBtn.parentElement.parentElement.dataset.id;
     const starCountRef = ref(db, 'Suppliers/' + username);
-      var active=true;
+      var active="true";
       update(ref(db, 'Suppliers/' + username),{
         active: active,
-        username: username,
         })
         alert('تم تفعيل الموفر');
         tableBody.innerHTML+="";
@@ -128,19 +127,44 @@ editButtons.forEach(editBtn=>{
           
           .then((userCredential) => {
            // Signed in 
-           
-          const user = userCredential.user;
-           // ...
-           set(supplierRef+user),{
-            username:username,
-            email:email,
-            password:password,
-           }
+          
           })
         .catch((error) => {
            const errorCode = error.code;
           const errorMessage = error.message;
       // ..
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          console.log(uid);
+          // const starCountRef = ref(db, 'Suppliers/' + username);
+
+            update(ref(db, 'Suppliers/' + username),{
+             uid:uid,
+            image:"",
+             description:"",
+            deliveryOption:"",
+           paymentOption:"",
+            workDay:"",
+            location:"",
+            telephone:""
+           })
+          
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+        //const newPassword = "esraesra"
+        //updatePassword(user, newPassword).then(() => {
+          // Update successful.
+       // }).catch((error) => {
+          // An error ocurred
+          // ...
+       // });
+      });
     });
         });
       
