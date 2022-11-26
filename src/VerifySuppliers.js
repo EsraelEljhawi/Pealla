@@ -1,3 +1,24 @@
+/* To send a verification email */
+var imported = document.createElement('script');
+imported.src = 'https://smtpjs.com/v3/smtp.js';
+document.head.appendChild(imported);
+
+
+ /* Email function */
+function sendEmail() {
+  Email.send({
+    SecureToken: "44388b74-f66f-4801-8bc4-e6c6ff0aadba",
+    To: "sarahs3rdmail@gmail.com",
+    From: "paellamanager1@gmail.com",
+    Subject: "تفعيل حسابك",
+    Body: "مرحيا! لقد تم تفعيل حسابك, يمكنك الان تسجيل الدخول والوصول الي حسابك الشخصي على تطبيق باييلا",
+  }) .then(function (message) {
+      alert("mail sent successfully")
+    });
+    }
+
+
+
 let tableBody=document.querySelector("tbody");
 // Import the functions you need from the SDKs you need
 
@@ -116,6 +137,7 @@ editButtons.forEach(editBtn=>{
         })
         alert('تم تفعيل الموفر');
         tableBody.innerHTML+="";
+        sendEmail();
         //add authentication
         //
         const auth = getAuth(app);
