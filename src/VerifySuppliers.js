@@ -4,13 +4,14 @@ imported.src = 'https://smtpjs.com/v3/smtp.js';
 document.head.appendChild(imported);
 
 
+
  /* Email function */
-function sendEmail() {
+function sendEmail(useremail) {
   Email.send({
     SecureToken: "44388b74-f66f-4801-8bc4-e6c6ff0aadba",
-    To: "sarahs3rdmail@gmail.com",
+    To: useremail,
     From: "paellamanager1@gmail.com",
-    Subject: "تفعيل حسابك",
+    Subject: "لقد تم تفعيل حسابك!",
     Body: "مرحيا! لقد تم تفعيل حسابك, يمكنك الان تسجيل الدخول والوصول الي حسابك الشخصي على تطبيق باييلا",
   }) .then(function (message) {
       alert("mail sent successfully")
@@ -137,7 +138,7 @@ editButtons.forEach(editBtn=>{
         })
         alert('تم تفعيل الموفر');
         tableBody.innerHTML+="";
-        sendEmail();
+        
         //add authentication
         //
         const auth = getAuth(app);
@@ -145,11 +146,11 @@ editButtons.forEach(editBtn=>{
           const data = snapshot.val(); // data = all data on firebse
           var email = data.email;
           var password = data.password;
+          sendEmail(email);
           createUserWithEmailAndPassword(auth, email, password)
           
           .then((userCredential) => {
            // Signed in 
-          
           })
         .catch((error) => {
            const errorCode = error.code;
