@@ -151,7 +151,7 @@ editButtons.forEach(editBtn=>{
           
           .then((userCredential) => {
            // Signed in 
-<<<<<<< HEAD
+
            onAuthStateChanged(auth, (user) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
@@ -185,8 +185,7 @@ editButtons.forEach(editBtn=>{
            // });
           });
           
-=======
->>>>>>> e3f16cf908b7eadf81915ca78fe86af4de555d78
+
           })
         .catch((error) => {
            const errorCode = error.code;
