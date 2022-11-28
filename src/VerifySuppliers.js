@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
 
 
 import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -127,44 +127,45 @@ editButtons.forEach(editBtn=>{
           
           .then((userCredential) => {
            // Signed in 
+           onAuthStateChanged(auth, (user) => {
+            if (user) {
+              // User is signed in, see docs for a list of available properties
+              // https://firebase.google.com/docs/reference/js/firebase.User
+              const uid = user.uid;
+              console.log(uid);
+              // const starCountRef = ref(db, 'Suppliers/' + username);
+    
+                update(ref(db, 'Suppliers/' + username),{
+                 uid:uid,
+                image:"",
+                 description:"",
+                deliveryOption:"",
+               paymentOption:"",
+                workDay:"",
+                location:"",
+                telephone:""
+               })
+              
+              // ...
+            } else {
+              // User is signed out
+              // ...
+            }
+            //const newPassword = "esraesra"
+            //updatePassword(user, newPassword).then(() => {
+              // Update successful.
+           // }).catch((error) => {
+              // An error ocurred
+              // ...
+           // });
+          });
           
           })
         .catch((error) => {
            const errorCode = error.code;
           const errorMessage = error.message;
       // ..
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          const uid = user.uid;
-          console.log(uid);
-          // const starCountRef = ref(db, 'Suppliers/' + username);
-
-            update(ref(db, 'Suppliers/' + username),{
-             uid:uid,
-            image:"",
-             description:"",
-            deliveryOption:"",
-           paymentOption:"",
-            workDay:"",
-            location:"",
-            telephone:""
-           })
-          
-          // ...
-        } else {
-          // User is signed out
-          // ...
-        }
-        //const newPassword = "esraesra"
-        //updatePassword(user, newPassword).then(() => {
-          // Update successful.
-       // }).catch((error) => {
-          // An error ocurred
-          // ...
-       // });
-      });
+   
     });
         });
       
@@ -174,3 +175,4 @@ editButtons.forEach(editBtn=>{
 
 
 });
+//

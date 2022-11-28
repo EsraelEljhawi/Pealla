@@ -16,25 +16,22 @@
     <div class="center">
 
       <h1>مرحبا بك !</h1>
-       <div id="not-logged-in">
-      <form class="signin">                       
-        <!-- onsubmit="login(event)"> removed method="post"-->
-
-        <div class="txt_field">
-          <input type="email" id="email" required>
-          <span></span>
-          <label>البريد الالكتروني</label>
-        </div>
-        <div class="txt_field">
-          <input type="password" id="password" required> <!--changed id from pass to password-->
-          <span></span>
-          <label>كلمة المرور</label>
-        </div> 
-        <button class="submit" type="submit">تسجيل الدخول</button>
+       
+      <div class="edit">
+        <input type="email" id="email" required>
+        <span></span>
+        <label>البريد الالكتروني</label>
+      </div>
+     
+      <div class="edit">
+        <input type="password" id="password" required> <!--changed id from pass to password-->
+        <span></span>
+        <label>كلمة المرور</label>
+      </div> 
+      <button class="submit"  id="login">تسجيل الدخول</button>
+      <div>
         <span style="color: rgb(222, 28, 28);" id="error_message" class="txt_field"></span>
-       <!-- <input type="submit" value="تسجيل الدخول" id="submit"> -->
-
-      </form>
+      </div>
        </div>
 <!--
        <div id="logged-in">
@@ -45,6 +42,10 @@
     </div>
 
      <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+     
+     
+
+     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
      <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
 
      <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
@@ -53,7 +54,7 @@
      <!-- Add Firebase products that you want to use -->
      <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
      <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
-     <script src="../src/index2.js"></script> <!--removed type="module"-->
+     <script src="../src/index2.js" type="module"></script> <!--removed type="module"-->
      
 
   </body>

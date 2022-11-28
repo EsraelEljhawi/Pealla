@@ -1,3 +1,5 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyATWDc-8oMJT9YCRiLsZFW96IklhrzklRA",
     authDomain: "pealla-499cf.firebaseapp.com",
@@ -9,28 +11,29 @@ const firebaseConfig = {
     measurementId: "G-3VDKWK043R"
   };
 
-firebase.initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
 
 const form = document.querySelector(".signin");
 //const info = document.querySelector(".info");
+const auth = getAuth(app);
 
-const user_email = document.getElementById("email");
-const user_password = document.getElementById("password");
+const login = document.getElementById('login')
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
-form.addEventListener("submit", event => {
-    event.preventDefault();
+login.addEventListener('click',(e)=>{
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  
 
-    let email = user_email.value;
-    let password = user_password.value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(user => {
-            console.log(`Successfully signed in!`);            
+     signInWithEmailAndPassword(auth, email, password)
+     .then((userCredential) => {
+       // Signed in 
+       console.log(`Successfully signed in!`);            
         // redirecting to app homepage
         window.location.href = "./dashboard.html";
-
-        })
-        .catch(function (error) {
+     })
+     .catch((error) => {
             // Handle Errors here.
            // alert(error); 
            document.getElementById('error_message').innerHTML = error;
@@ -48,34 +51,36 @@ form.addEventListener("submit", event => {
             }, 8000); */
         });
     // reset form
-   form.reset(); 
+    
 });
+//  const signout=document.getElementById('signout');
+//  signout.addEventListener('click',)
 
 
-function resetPass(){
+// function resetPass(){
 
-  var email = document.getElementById("emailX").value;
-  var oldpass = document.getElementById("oldpass").value;
-  var newpass = document.getElementById("newpass").value;
+//   var email = document.getElementById("emailX").value;
+//   var oldpass = document.getElementById("oldpass").value;
+//   var newpass = document.getElementById("newpass").value;
   
  
-    firebase.auth().signInWithEmailAndPassword(email, oldpass)
-        {
-           // console.log(`Successfully signed in!`);            
-            alert("success");
-         //   var user = firebase.auth().currentUser;
-         //   alert(user); 
+//     firebase.auth().signInWithEmailAndPassword(email, oldpass)
+//         {
+//            // console.log(`Successfully signed in!`);            
+//             alert("success");
+//          //   var user = firebase.auth().currentUser;
+//          //   alert(user); 
  
- /*           user.updatePassword(newpass).then(function() {
-              // Update successful.
-              alert("done")
-            }).catch(function(error) {
-              // An error happened.
-              alert(error);
-            }); */
-        }
+//  /*           user.updatePassword(newpass).then(function() {
+//               // Update successful.
+//               alert("done")
+//             }).catch(function(error) {
+//               // An error happened.
+//               alert(error);
+//             }); */
+//         }
   
-}
+// }
 
 
 
@@ -142,3 +147,19 @@ const firebaseConfig = {
  function logout() {
 
  } */
+//  var reset = document.getElementById("reset");
+//  reset.onclick=function(){
+//   const auth = getAuth();
+// var passsword=document.getElementById("newpass").value;
+// const user = auth.currentUser;
+// const newPassword = passsword;
+
+// updatePassword(user, newPassword).then(() => {
+//   // Update successful.
+//   console.log('success')
+// }).catch((error) => {
+//   // An error ocurred
+//   // ...
+//   console.log(error)
+// });
+//  }

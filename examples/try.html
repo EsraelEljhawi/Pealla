@@ -1,50 +1,41 @@
-
 <!DOCTYPE html>
-<html dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>تسجيل الدخول</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-  </head>
-
-
-  <body class="text-right">
-
-    <div class="center">
-
-      <h1>مرحبا بك !</h1>
-       <div id="not-logged-in">
-      <form class="signin">                       
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <title>تسجيل الدخول</title>
+</head>
+<body class="text-right">
+  <div class="center">
+    <h1>مرحبا بك !</h1>               
         <!-- onsubmit="login(event)"> removed method="post"-->
-
-        <div class="txt_field">
+         
+        <div class="edit">
           <input type="email" id="email" required>
           <span></span>
           <label>البريد الالكتروني</label>
         </div>
-        <div class="txt_field">
+       
+        <div class="edit">
           <input type="password" id="password" required> <!--changed id from pass to password-->
           <span></span>
           <label>كلمة المرور</label>
         </div> 
-        <button class="submit" type="submit" id="signin">تسجيل الدخول</button>
-        <span style="color: rgb(222, 28, 28);" id="error_message" class="txt_field"></span>
+        <button class="submit" type="submit" id="login">تسجيل الدخول</button>
+        <div>
+          <span style="color: rgb(222, 28, 28);" id="error_message" class="txt_field"></span>
+        </div>
+        
        <!-- <input type="submit" value="تسجيل الدخول" id="submit"> -->
 
-      </form>
-       </div>
-<!--
-       <div id="logged-in">
-        <h3>YOURE LOGGED IN!</h3>
-        <button onclick="logout()">Log out</button>
-       </div> -->
-       
-    </div>
-
-     <script src="./try.js" type="module"></script> <!--removed type="module"-->
+      
      
-
-  </body>
-
-
+    
+  
+  </div>
+  
+  <script type="module" src="./try.js"></script>
+</body>
 </html>
