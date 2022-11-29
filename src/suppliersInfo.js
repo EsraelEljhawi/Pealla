@@ -84,46 +84,70 @@ tableBody.innerHTML+=tr;
 let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
+    
    // confirm("are you sure you want to delete this?")
-    let username=deleteBtn.parentElement.parentElement.dataset.id;
-     remove(ref(db,"Suppliers/"+username))
-     .then(()=>{
+     let username=deleteBtn.parentElement.parentElement.dataset.id;
+    //  remove(ref(db,"Suppliers/"+username))
+    //  .then(()=>{
         
-      const auth = getAuth();
+    //   const auth = getAuth();
        const starCountRef = ref(db, 'Suppliers/' + username);
-      onValue(starCountRef, (snapshot) => {
+       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
         var email=data.email;
         var password=data.password;
-        
-      signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log('success');
-        // Signed in 
-      //  const user = userCredential.user;
-      //  console.log(user);
-       // ...
-       const auth = getAuth();
-       const user = auth.currentUser;
-      console.log(user);
-      deleteUser(user).then(() => {
-        console.log('deleted');
-        // User deleted.
-      }).catch((error) => {
-        // An error ocurred
-        // ...
-      });
-        window.location.reload()
+        console.log(email)
+        console.log(password)
+        const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    const auth = getAuth();
+
+    deleteUser(user).then(() => {
+  // User deleted.
+  remove(ref(db,"Suppliers/"+username))
+     }).catch((error) => {
+  // An error ocurred
+  // ...
+   });
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
       })
-      })
+        
+    //   signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     console.log('success');
+    //     // Signed in 
+    //   //  const user = userCredential.user;
+    //   //  console.log(user);
+    //    // ...
+    //    const auth = getAuth();
+    //    const user = auth.currentUser;
+    //   console.log(user);
+    //   deleteUser(user).then(() => {
+    //     console.log('deleted');
+    //     // User deleted.
+    //   }).catch((error) => {
+    //     // An error ocurred
+    //     // ...
+    //   });
+    //     window.location.reload()
+    //   })
+    //   })
       
-      .catch((error) => {
-       const errorCode = error.code;
-       const errorMessage = error.message;
-      });
+    //   .catch((error) => {
+    //    const errorCode = error.code;
+    //    const errorMessage = error.message;
+    //   });
       
         
-    })
+    // })
     
 });
 
