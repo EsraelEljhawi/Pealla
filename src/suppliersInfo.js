@@ -67,6 +67,9 @@ if(Suppliers[supplier].active=='true')
                     <td>
                     ${Suppliers[supplier].accountType}
                     </td>
+                    <td>
+                    ${Suppliers[supplier].name}
+                    </td>
                     <td class="text-right" id="username">
                        ${Suppliers[supplier].username}
                     </td>
