@@ -14,7 +14,7 @@ function sendEmail(useremail) {
     Subject: "لقد تم تفعيل حسابك!",
     Body: "مرحيا! لقد تم تفعيل حسابك, يمكنك الان تسجيل الدخول والوصول الي حسابك الشخصي على تطبيق باييلا",
   }) .then(function (message) {
-      alert("mail sent successfully")
+      alert("تم تفعيل الموفر وارسال  رسالة اليه ")
     });
     }
 
@@ -27,7 +27,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
 
 
 import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword,signInWithEmailAndPassword,updateProfile } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -138,24 +138,50 @@ editButtons.forEach(editBtn=>{
       var active="true";
       update(ref(db, 'Suppliers/' + username),{
         active: active,
+        Type:'Supplier'
         })
-        alert('تم تفعيل الموفر');
-        tableBody.innerHTML+="";
+        
         
         //add authentication
         //
-        const auth = getAuth(app);
+        const auth = getAuth();
+        const user = auth.currentUser;
         onValue(starCountRef, (snapshot) => {
           const data = snapshot.val(); // data = all data on firebse
           var email = data.email;
           var password = data.password;
+          var emuser=data.username;
           sendEmail(email);
-          createUserWithEmailAndPassword(auth, email, password)
           
-          .then((userCredential) => {
-           // Signed in 
+          const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+         .then((userCredential) => {
+         // Signed in 
+         const user = userCredential.user;
 
-           onAuthStateChanged(auth, (user) => {
+         //
+         
+         updateProfile(auth.currentUser, {
+           displayName: emuser, 
+         }).then(() => {
+           // Profile updated!
+           // ...
+           console.log('updated')
+            
+         }).catch((error) => {
+           // An error occurred
+           // ...
+         });
+         
+         
+        // ...
+        })
+         .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+          onAuthStateChanged(auth, (user) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
@@ -179,23 +205,10 @@ editButtons.forEach(editBtn=>{
               // User is signed out
               // ...
             }
-            //const newPassword = "esraesra"
-            //updatePassword(user, newPassword).then(() => {
-              // Update successful.
-           // }).catch((error) => {
-              // An error ocurred
-              // ...
-           // });
-          });
-          
-
           })
-        .catch((error) => {
-           const errorCode = error.code;
-          const errorMessage = error.message;
-      // ..
+         
+    
    
-    });
         });
       
       });
