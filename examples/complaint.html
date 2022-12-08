@@ -42,6 +42,7 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
+    <script type="module" src="../src/Complaint.js"></script>
     <div class="logo">
       <img src="../assets/img/Logo-Paella.png">
       </div>
@@ -150,52 +151,47 @@
       </div>
       <div class="content">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title" style="text-align:center;">الشكاوى</h5>
-
-          </div>
-          <div class="col-md-4">
-            <div class="card card-user">
-              <div class="image">
-                <img src="../assets/img/bg5.jpg" alt="...">
+                <!-- removed class="card-title" from h4 and added class="text-right"-->
               </div>
               <div class="card-body">
-                <div class="author">
-                  <a href="#">
-                    <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                    <h5 class="title">Mike Andrew</h5>
-                  </a>
-                  <p class="description">
-                    michael24
-                  </p>
+                <div class="table-complaint" >
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        <!--nothing to write above delete buttons-->
+                      </th>
+
+
+                      <div>
+                        <hr>
+                        <h2>الشكاوي</h2>
+                        <hr>
+                
+                        <div>
+                            <div class="row">
+                            </div>
+                        </div>
+                    </div>
+                
+                    </thead>
+                    <!--START A COOMENT FROM HERE-->
+                    <tbody  class="row-card">
+
+              
+                           
+                      
+                    </tbody> <!--TO HERE TO EMPTY THE TABLE-->
+                  </table>
                 </div>
-                <p class="description text-center">
-                  "Lamborghini Mercy <br>
-                  Your chick she so thirsty <br>
-                  I'm in that two seat Lambo"
-                </p>
-              </div>
-              <hr>
-              <div class="button-container">
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
-                  <i class="fab fa-google-plus-g"></i>
-                </button>
               </div>
             </div>
           </div>
+
         </div>
       </div>
-      
-    </div>
-  </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>

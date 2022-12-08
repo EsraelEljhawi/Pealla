@@ -6068,4 +6068,17 @@ Created using IcoMoon - icomoon.io
   }
 }
 
+.row-card {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+.table-complaint {
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
 /*# sourceMappingURL=dashboard-free.css.map */
