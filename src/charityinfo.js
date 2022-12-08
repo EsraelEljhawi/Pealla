@@ -58,6 +58,9 @@ if(Charities[charity].active=="true")
                     <td id="email"class="email">
                     ${Charities[charity].email}
                     </td>
+                    <td id="password" class="password">
+                    ${Charities[charity].password}
+                    </td>
                     <td>
                     ${Charities[charity].phone}
                     </td>
