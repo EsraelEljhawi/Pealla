@@ -53,12 +53,12 @@ onValue(complaintRef, (snapshot) => {
                     <div class="card-body">
                     <img src=${Complaints[Complaint].currentUserImage} class="image-dash">
                     <br><br>
-                        <h5 class="card-title" >${Complaints[Complaint].currentUsername}</h5>
+                        <h5 class="card-title">${Complaints[Complaint].currentUsername}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${Complaints[Complaint].currentUserEmail}</h6>
                         <br>
                         <hr>
                         <div style="width:100%;height:150px;line-height:3em;overflow:scroll;padding:5px;">
-                        <div id="complaint">${Complaints[Complaint].complaint}</div></div>
+                        <div>${Complaints[Complaint].complaint}</div></div>
                         <hr>
                         <br>
                         <button class="btn btn-danger" id="delete" class="delete">حـذف</button>
@@ -78,7 +78,7 @@ onValue(complaintRef, (snapshot) => {
      deleteButtons.forEach(deleteBtn=>{
         deleteBtn.addEventListener("click",()=>{
            // confirm("are you sure you want to delete this?")
-            let complaint=deleteBtn.parentElement.parentElement.dataset.id;
+            let complaint=deleteBtn.parentElement.parentElement.parentNode.dataset.id;
             remove(ref(db,"Complaints/" + complaint))
             .then(()=>{
                 window.location.reload();
