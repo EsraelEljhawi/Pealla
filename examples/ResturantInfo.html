@@ -195,26 +195,21 @@
                         tr=table.getElementsByTagName("tr");
 
                         for (i = 0; i < tr.length; i++) {
-                          td = tr[i].getElementsByTagName("td")[5];
+                          td = tr[i].getElementsByTagName("td")[6];
                           
                           if (td) {
                             txtValue = td.textContent || td.innerText;
                             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                               
-                              
                               tr[i].style.display = "";
-                              
                               
                             }
                             else{
                               tr[i].style.display = "none";
                             }
                           }
-
                         }
-
                         }
-                        
                         </script>
                     </tbody> <!--TO HERE TO EMPTY THE TABLE-->
                   </table>
@@ -222,136 +217,7 @@
               </div>
             </div>
           </div>
-          <!--ANOTHER TABLE STYLE-->
-          <!--
-          <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="card-title"> Table on Plain Background</h4>
-                <p class="category"> Here is a subtitle for this table</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        البريد الالكتروني
-                      </th>
-                      <th>
-                        الرقم
-                      </th>
-                      <th class="text-right">
-                        اسم الجمعية
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <button>حذف</button>
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Philip Chaney
-                        </td>
-                        <td>
-                          Korea, South
-                        </td>
-                        <td>
-                          Overland Park
-                        </td>
-                        <td class="text-right">
-                          $38,735
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Jon Porter
-                        </td>
-                        <td>
-                          Portugal
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $98,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div> -->
+          
         </div>
       </div>
       
