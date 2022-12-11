@@ -78,10 +78,7 @@ if(Suppliers[supplier].active=='true')
 `
 tableBody.innerHTML+=tr;
 
-
 }
-
-
 }
 //delete data 
 let deleteButtons=document.querySelectorAll("#delete");

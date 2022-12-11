@@ -73,10 +73,10 @@ onValue(userRef, (snapshot) => {
                         <td>
                           <button class="btn btn-primary btn-block" id="delete" class="delete">حـذف</button>
                         </td>
-                        <td>
+                        <td id="password" class="password">
                         ${Users[user].password}
                         </td>
-                        <td>
+                        <td id="email"class="email">
                         ${Users[user].email}
                         </td>
                         <td>
@@ -89,9 +89,51 @@ onValue(userRef, (snapshot) => {
                       
     `
     tableBody.innerHTML+=tr;
-    
-    
   }
+//delete data 
+let deleteButtons=document.querySelectorAll("#delete");
+deleteButtons.forEach(deleteBtn=>{
+deleteBtn.addEventListener("click",()=>{
+    
+   //confirm("are you sure you want to delete this?")
+     let username=deleteBtn.parentElement.parentElement.dataset.id;
+       const starCountRef = ref(db, 'Users/' + username);
+       onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        var email=data.email;
+        var password=data.password;
+        console.log(email)
+        console.log(password)
+        const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+   // const auth = getAuth();
+
+    deleteUser(user).then(() => {
+  // User deleted.
+  window.location.reload();
+  remove(ref(db,"Users/"+username))
+     }).catch((error) => {
+  // An error ocurred
+  // ...
+   });
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+      })
+    });
+
+  })
+
+});
+
+
+  /*
   //delete data 
  let deleteButtons=document.querySelectorAll("#delete");
  deleteButtons.forEach(deleteBtn=>{
@@ -108,8 +150,8 @@ onValue(userRef, (snapshot) => {
         
   });
     
- })
-});
+ }) */
+
 
 // const auth = getAuth();
 // const signin = document.getElementById("signin")
