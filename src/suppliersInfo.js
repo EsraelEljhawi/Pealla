@@ -110,6 +110,7 @@ signInWithEmailAndPassword(auth, email, password)
 
     deleteUser(user).then(() => {
   // User deleted.
+  window.location.reload();
   remove(ref(db,"Suppliers/"+username))
      }).catch((error) => {
   // An error ocurred
