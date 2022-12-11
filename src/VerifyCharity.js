@@ -14,7 +14,7 @@ function sendEmail(useremail) {
     Subject: "لقد تم تفعيل حسابك!",
     Body: "مرحيا! لقد تم تفعيل حسابك, يمكنك الان تسجيل الدخول والوصول الي حسابك الشخصي على تطبيق باييلا",
   }) .then(function (message) {
-      alert("تم تفعيل الموفر وارسال  رسالة اليه")
+     // alert("تم تفعيل الموفر وارسال  رسالة اليه")
     });
     }
 
@@ -128,8 +128,6 @@ editButtons.forEach(editBtn=>{
         active: active,
         Type:'Charity'
         })
-        
-        
         //add authentication
         //
         const auth = getAuth();
@@ -184,7 +182,8 @@ editButtons.forEach(editBtn=>{
                 location:"",
                 telephone:""
                })
-              
+               window.location.reload();
+        
               // ...
             } else {
               // User is signed out

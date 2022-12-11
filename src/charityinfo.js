@@ -40,6 +40,9 @@ if(Charities[charity].active=="true")
                     <td>
                     ${Charities[charity].phone}
                     </td>
+                    <td>
+                    ${Charities[charity].name}
+                    </td>
                     <td class="text-right" id="username">
                     ${Charities[charity].username}
                     </td>
@@ -48,7 +51,8 @@ if(Charities[charity].active=="true")
 tableBody.innerHTML+=tr;
 }}
 
-//to delete data 
+
+//delete data 
 let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
@@ -75,6 +79,7 @@ signInWithEmailAndPassword(auth, email, password)
 
     deleteUser(user).then(() => {
   // User deleted.
+  window.location.reload();
   remove(ref(db,"Charities/"+username))
      }).catch((error) => {
   // An error ocurred
@@ -85,8 +90,10 @@ signInWithEmailAndPassword(auth, email, password)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-  });
- }) 
-});
-})
+   });  
+      })
+    });
+
+  })
+
 });
