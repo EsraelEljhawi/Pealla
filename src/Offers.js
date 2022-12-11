@@ -18,7 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
-// TODO replace id with key
+// Read from real time database offers
 const db = getDatabase();
 const offerRef= ref(db, 'Offers/');
 onValue(offerRef, (snapshot) => {
@@ -31,13 +31,16 @@ onValue(offerRef, (snapshot) => {
                           <button class="btn btn-primary btn-block" id="delete" class="delete">حـذف</button>
                         </td>
                         <td>
-                        ${Offers[offer].supplieruName}
+                        ${Offers[offer].option}
                         </td>
                         <td>
                         ${Offers[offer].offerType}
                         </td>
                         <td>
                         ${Offers[offer].name}
+                        </td>
+                        <td>
+                        ${Offers[offer].supplieruName}
                         </td>
                         <td class="text-right">
                            ${Offers[offer].id}
