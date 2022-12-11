@@ -49,18 +49,22 @@ onValue(offerRef, (snapshot) => {
     `
     tableBody.innerHTML+=tr;
   }
-  /*
+
+  
   //delete data 
  let deleteButtons=document.querySelectorAll("#delete");
  deleteButtons.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click",()=>{
        // confirm("are you sure you want to delete this?")
-        let username=deleteBtn.parentElement.parentElement.dataset.id;
-        remove(ref(db,"Offers/"+username))
+        let id=deleteBtn.parentElement.parentElement.dataset.id;
+        remove(ref(db,"Offers/"+id))
         .then(()=>{
             window.location.reload()
         })   
   });  
  })
-*/
+
+
+
+
 });
