@@ -79,8 +79,8 @@ signInWithEmailAndPassword(auth, email, password)
 
     deleteUser(user).then(() => {
   // User deleted.
-  window.location.reload();
   remove(ref(db,"Charities/"+username))
+  window.location.reload();
      }).catch((error) => {
   // An error ocurred
   // ...

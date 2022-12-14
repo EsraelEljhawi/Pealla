@@ -77,7 +77,7 @@ let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
     
-   //confirm("are you sure you want to delete this?")
+    confirm("are you sure you want to delete this?")
      let username=deleteBtn.parentElement.parentElement.dataset.id;
        const starCountRef = ref(db, 'Users/' + username);
        onValue(starCountRef, (snapshot) => {
@@ -96,8 +96,8 @@ signInWithEmailAndPassword(auth, email, password)
 
     deleteUser(user).then(() => {
   // User deleted.
-  window.location.reload();
   remove(ref(db,"Users/"+username))
+  window.location.reload();
      }).catch((error) => {
   // An error ocurred
   // ...

@@ -102,34 +102,21 @@ if(Suppliers[supplier].active=="false")
                   
 `
 tableBody.innerHTML+=tr;
-
-
 }
-else{
-  
-
-}
-
-
-}
-//delete data 
+else{ 
+}}
+//delete data
 let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
-   // confirm("are you sure you want to delete this?")
+    confirm("are you sure you want to delete this?")
     let username=deleteBtn.parentElement.parentElement.dataset.id;
     remove(ref(db,"Suppliers/"+username))
-    .then(()=>{
-        
-        
+    .then(()=>{  
         window.location.reload()
-        
     })
-    
 });
-
 })
-
 let editButtons=document.querySelectorAll("#edit");
 editButtons.forEach(editBtn=>{
   editBtn.addEventListener("click",()=>{
@@ -139,11 +126,8 @@ editButtons.forEach(editBtn=>{
       update(ref(db, 'Suppliers/' + username),{
         active: active,
         Type:'Supplier'
-        })
-        
-        
+        })     
         //add authentication
-        //
         const auth = getAuth();
         const user = auth.currentUser;
         onValue(starCountRef, (snapshot) => {
@@ -152,28 +136,20 @@ editButtons.forEach(editBtn=>{
           var password = data.password;
           var emuser=data.username;
           sendEmail(email);
-          
           const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
          // Signed in 
          const user = userCredential.user;
-
-         //
-         
+         // update displayname
          updateProfile(auth.currentUser, {
            displayName: emuser, 
          }).then(() => {
-           // Profile updated!
-           // ...
-           console.log('updated')
-            
+           console.log(displayName);
+           console.log('updated') 
          }).catch((error) => {
-           // An error occurred
-           // ...
+           console.log(error);
          });
-         
-         
         // ...
         })
          .catch((error) => {
@@ -181,6 +157,7 @@ editButtons.forEach(editBtn=>{
           const errorMessage = error.message;
           // ..
         });
+         /* Authentication state  */
           onAuthStateChanged(auth, (user) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
@@ -188,7 +165,6 @@ editButtons.forEach(editBtn=>{
               const uid = user.uid;
               console.log(uid);
               // const starCountRef = ref(db, 'Suppliers/' + username);
-    
                 update(ref(db, 'Suppliers/' + username),{
                  uid:uid,
                 image:"",
@@ -198,23 +174,19 @@ editButtons.forEach(editBtn=>{
                 workDay:"",
                 location:"",
                 telephone:""
-               })
-               window.location.reload();
+               }).then(() => {
+                window.location.reload(); 
+              }).catch((error) => {
+                print(error);
+              });
               // ...
             } else {
               // User is signed out
               // ...
             }
           })
-         
-    
-   
         });
-      
       });
-  
 });
-
-
 });
 //

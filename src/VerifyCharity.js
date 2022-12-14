@@ -24,38 +24,23 @@ let tableBody=document.querySelector("tbody");
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-
-
 import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword,onAuthStateChanged ,updatePassword,signInWithEmailAndPassword,updateProfile } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
-
 // https://firebase.google.com/docs/web/setup#available-libraries
-
-
 // Your web app's Firebase configuration
-
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-
   apiKey: "AIzaSyATWDc-8oMJT9YCRiLsZFW96IklhrzklRA",
-
   authDomain: "pealla-499cf.firebaseapp.com",
-
   databaseURL: "https://pealla-499cf-default-rtdb.asia-southeast1.firebasedatabase.app",
-
   projectId: "pealla-499cf",
-
   storageBucket: "pealla-499cf.appspot.com",
-
   messagingSenderId: "480176817532",
-
   appId: "1:480176817532:web:f0f572d00136f6854810f9",
-
   measurementId: "G-3VDKWK043R"
-
 };
 
 
@@ -96,28 +81,21 @@ if(Charities[charity].active=="false")
 `
 tableBody.innerHTML+=tr;
 
-
 }
 else{
-}
-
-
-}
+}}
 //delete data 
 let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
-   // confirm("are you sure you want to delete this?")
+    confirm("are you sure you want to delete this?")
     let username=deleteBtn.parentElement.parentElement.dataset.id;
     remove(ref(db,"Charities/"+username))
     .then(()=>{
         window.location.reload() 
-    })
-    
+    }) 
 });
-
 })
-
 let editButtons=document.querySelectorAll("#edit");
 editButtons.forEach(editBtn=>{
   editBtn.addEventListener("click",()=>{
@@ -126,10 +104,9 @@ editButtons.forEach(editBtn=>{
       var active="true";
       update(ref(db, 'Charities/' + username),{
         active: active,
-        Type:'Charity'
-        })
+        Type:'Charities'
+        })     
         //add authentication
-        //
         const auth = getAuth();
         const user = auth.currentUser;
         onValue(starCountRef, (snapshot) => {
@@ -138,28 +115,20 @@ editButtons.forEach(editBtn=>{
           var password = data.password;
           var emuser=data.username;
           sendEmail(email);
-          
           const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
          .then((userCredential) => {
          // Signed in 
          const user = userCredential.user;
-
-         //
-         
+         // update displayname
          updateProfile(auth.currentUser, {
            displayName: emuser, 
          }).then(() => {
-           // Profile updated!
-           // ...
-           console.log('updated')
-            
+           console.log(displayName);
+           console.log('updated') 
          }).catch((error) => {
-           // An error occurred
-           // ...
+           console.log(error);
          });
-         
-         
         // ...
         })
          .catch((error) => {
@@ -167,6 +136,7 @@ editButtons.forEach(editBtn=>{
           const errorMessage = error.message;
           // ..
         });
+         /* Authentication state  */
           onAuthStateChanged(auth, (user) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
@@ -174,16 +144,17 @@ editButtons.forEach(editBtn=>{
               const uid = user.uid;
               console.log(uid);
               // const starCountRef = ref(db, 'Suppliers/' + username);
-    
                 update(ref(db, 'Charities/' + username),{
                  uid:uid,
                 image:"",
-                 description:"",
+                description:"",
                 location:"",
                 telephone:""
-               })
-               window.location.reload();
-        
+               }).then(() => {
+                window.location.reload(); 
+              }).catch((error) => {
+                print(error);
+              });
               // ...
             } else {
               // User is signed out
@@ -194,4 +165,4 @@ editButtons.forEach(editBtn=>{
       });
 });
 });
-
+//
