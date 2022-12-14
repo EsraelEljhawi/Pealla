@@ -145,7 +145,6 @@ editButtons.forEach(editBtn=>{
          updateProfile(auth.currentUser, {
            displayName: emuser, 
          }).then(() => {
-           console.log(displayName);
            console.log('updated') 
          }).catch((error) => {
            console.log(error);
@@ -174,11 +173,11 @@ editButtons.forEach(editBtn=>{
                 workDay:"",
                 location:"",
                 telephone:""
-               }).then(() => {
+               })/*.then(() => {
                 window.location.reload(); 
               }).catch((error) => {
                 print(error);
-              });
+              }); */
               // ...
             } else {
               // User is signed out
