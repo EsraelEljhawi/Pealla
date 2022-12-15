@@ -55,6 +55,7 @@ onValue(complaintRef, (snapshot) => {
                     <br><br>
                         <h5 class="card-title">${Complaints[Complaint].currentUsername}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${Complaints[Complaint].currentUserEmail}</h6>
+                        <h6 class="card-title">${Complaints[Complaint].type}</h6>
                         <br>
                         <hr>
                         <div style="width:100%;height:150px;line-height:3em;overflow:scroll;padding:5px;">

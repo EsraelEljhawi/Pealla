@@ -6082,8 +6082,9 @@ Created using IcoMoon - icomoon.io
 }
 
 .image-dash {
-  border-radius:100%;
-  max-width: 25%;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
 
 }
 
