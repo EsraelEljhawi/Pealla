@@ -104,7 +104,7 @@ editButtons.forEach(editBtn=>{
       var active="true";
       update(ref(db, 'Charities/' + username),{
         active: active,
-        Type:'Charities'
+        //Type:'Charities'
         })     
         //add authentication
         const auth = getAuth();
