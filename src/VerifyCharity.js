@@ -148,7 +148,7 @@ editButtons.forEach(editBtn=>{
                 image:"",
                 description:"",
                 location:"",
-                telephone:""
+                phone:""
                })/*.then(() => {
                 window.location.reload(); 
               }).catch((error) => {

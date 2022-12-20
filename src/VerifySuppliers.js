@@ -172,7 +172,7 @@ editButtons.forEach(editBtn=>{
                paymentOption:"",
                 workDay:"",
                 location:"",
-                telephone:""
+                phone:""
                })/*.then(() => {
                 window.location.reload(); 
               }).catch((error) => {
