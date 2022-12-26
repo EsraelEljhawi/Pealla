@@ -171,8 +171,7 @@ editButtons.forEach(editBtn=>{
                 deliveryOption:"",
                paymentOption:"",
                 workDay:"",
-                location:"",
-                phone:""
+                location:""
                })/*.then(() => {
                 window.location.reload(); 
               }).catch((error) => {

@@ -147,8 +147,7 @@ editButtons.forEach(editBtn=>{
                  uid:uid,
                 image:"",
                 description:"",
-                location:"",
-                phone:""
+                location:""
                })/*.then(() => {
                 window.location.reload(); 
               }).catch((error) => {
