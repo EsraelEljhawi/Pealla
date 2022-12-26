@@ -55,9 +55,6 @@ onValue(userRef, (snapshot) => {
                         <td>
                           <button class="btn btn-primary btn-block" id="delete" class="delete">حـذف</button>
                         </td>
-                        <td id="password" class="password">
-                        ${Users[user].password}
-                        </td>
                         <td id="email"class="email">
                         ${Users[user].email}
                         </td>

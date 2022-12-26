@@ -35,9 +35,6 @@ if(Suppliers[supplier].active=='true')
                     <td id="email"class="email">
                     ${Suppliers[supplier].email}
                     </td>
-                    <td id="password" class="password">
-                    ${Suppliers[supplier].password}
-                    </td>
                     <td>
                     ${Suppliers[supplier].phone}
                     </td>

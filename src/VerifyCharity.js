@@ -68,11 +68,11 @@ if(Charities[charity].active=="false")
                     <td id="email"class="email">
                     ${Charities[charity].email}
                     </td>
-                    <td id="password" class="password">
-                    ${Charities[charity].password}
-                    </td>
                     <td>
                     ${Charities[charity].phone}
+                    </td>
+                    <td>
+                    ${Charities[charity].name}
                     </td>
                     <td class="text-right" id="username">
                     ${Charities[charity].username}

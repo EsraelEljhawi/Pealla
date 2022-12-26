@@ -155,13 +155,10 @@
                         <!--nothing to write above delete buttons-->
                       </th>
                       <th>
-                        الرقم السري
-                      </th>
-                      <th>
                         البريد الإلكتروني
                       </th>
                       <th>
-                        رقم الهاتف المحمول
+                        رقم الهاتف 
                       </th>
                       <th class="text-right">
                         إسم المستخدم
@@ -179,7 +176,7 @@
                         tr=table.getElementsByTagName("tr");
 
                         for (i = 0; i < tr.length; i++) {
-                          td = tr[i].getElementsByTagName("td")[4];
+                          td = tr[i].getElementsByTagName("td")[3];
                           
                           if (td) {
                             txtValue = td.textContent || td.innerText;

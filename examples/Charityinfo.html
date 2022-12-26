@@ -168,16 +168,13 @@
                         البريد الالكتروني
                       </th>
                       <th>
-                        كلمة المرور
-                      </th>
-                      <th>
                         رقم الهاتف
                       </th>
                       <th>
                         اسم الجمعية 
                       </th>
                       <th class="text-right">
-                        اسم مستخدم الجمعية
+                        اسم المستخدم
                       </th>
                     </thead>
                     <!--START A COOMENT FROM HERE-->
@@ -191,7 +188,7 @@
                         tr=table.getElementsByTagName("tr");
 
                         for (i = 0; i < tr.length; i++) {
-                          td = tr[i].getElementsByTagName("td")[5];
+                          td = tr[i].getElementsByTagName("td")[4];
                           if (td) {
                             txtValue = td.textContent || td.innerText;
                             if (txtValue.toUpperCase().indexOf(filter) > -1) {
