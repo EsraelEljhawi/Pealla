@@ -97,6 +97,8 @@ signInWithEmailAndPassword(auth, email, password)
     deleteUser(user).then(() => {
   // User deleted.
   remove(ref(db,"Users/"+username))
+  /* Delete user from account type table */
+  remove(ref(db,"AccountType/"+username));
   window.location.reload();
      }).catch((error) => {
   // An error ocurred
