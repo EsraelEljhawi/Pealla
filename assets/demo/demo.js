@@ -224,7 +224,7 @@ demo = {
       data: {
         labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
         datasets: [{
-          label: "Data",
+          label:'عدد المستخدمين للشهر',
           borderColor: chartColor,
           pointBorderColor: chartColor,
           pointBackgroundColor: "#1e3d60",
@@ -237,7 +237,7 @@ demo = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
+          data: [111, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
         }]
       },
       options: {
@@ -569,14 +569,14 @@ demo = {
       }]
     };
 
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    // var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      title: "Hello World!"
-    });
+    // var marker = new google.maps.Marker({
+    //   position: myLatlng,
+    //   title: "Hello World!"
+    // });
 
     // To add the marker to the map, call setMap();
-    marker.setMap(map);
+    // marker.setMap(map);
   }
 };

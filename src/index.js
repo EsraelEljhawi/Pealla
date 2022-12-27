@@ -113,6 +113,3 @@ signInWithEmailAndPassword(auth, email, password)
   })
 
 });
-
-
-

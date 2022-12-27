@@ -57,7 +57,7 @@ const firebaseConfig = {
   measurementId: "G-3VDKWK043R"
 
 };
-
+var SignUpDate;
 
 // Initialize Firebase
 
@@ -159,16 +159,21 @@ editButtons.forEach(editBtn=>{
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
               const uid = user.uid;
+             const SignUpDate=user.metadata.creationTime;
+             const LastSee=user.metadata.lastSignInTime;
               console.log(uid);
               // const starCountRef = ref(db, 'Suppliers/' + username);
                 update(ref(db, 'Suppliers/' + username),{
                  uid:uid,
+                
                 image:"",
                  description:"",
                 deliveryOption:"",
                paymentOption:"",
                 workDay:"",
-                location:""
+                location:"",
+                SignUpDate:SignUpDate,
+                LastSee:LastSee,
                })/*.then(() => {
                 window.location.reload(); 
               }).catch((error) => {
