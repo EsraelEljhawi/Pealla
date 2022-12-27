@@ -54,7 +54,8 @@ let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
     
-   // confirm("are you sure you want to delete this?")
+    var result = confirm("هل انت متأكد من حذف هذه الجمعية؟")
+     if(result == true){
      let username=deleteBtn.parentElement.parentElement.dataset.id;
     //  remove(ref(db,"Suppliers/"+username))
     //  .then(()=>{
@@ -79,6 +80,7 @@ signInWithEmailAndPassword(auth, email, password)
   remove(ref(db,"Charities/"+username))
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
+  alert("تم حذف الجمعية");
   window.location.reload();
      }).catch((error) => {
   // An error ocurred
@@ -90,9 +92,10 @@ signInWithEmailAndPassword(auth, email, password)
     const errorCode = error.code;
     const errorMessage = error.message;
    });  
-      })
+      });
+    }//end of result
     });
 
-  })
+  });
 
 });

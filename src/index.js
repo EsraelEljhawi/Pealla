@@ -74,7 +74,8 @@ let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
     
-    confirm("are you sure you want to delete this?")
+    var result = confirm("هل انت متأكذ من حذف هذا المستخدم؟");
+     if(result == true){
      let username=deleteBtn.parentElement.parentElement.dataset.id;
        const starCountRef = ref(db, 'Users/' + username);
        onValue(starCountRef, (snapshot) => {
@@ -96,6 +97,7 @@ signInWithEmailAndPassword(auth, email, password)
   remove(ref(db,"Users/"+username))
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
+  alert("تم حذف المستخدم");
   window.location.reload();
      }).catch((error) => {
   // An error ocurred
@@ -107,9 +109,10 @@ signInWithEmailAndPassword(auth, email, password)
     const errorCode = error.code;
     const errorMessage = error.message;
   });
-      })
-    });
-
-  })
+      });
+    }// end of result
+    }); 
+  
+  });
 
 });
