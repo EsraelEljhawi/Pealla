@@ -88,17 +88,23 @@ else{
 let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
-    confirm("are you sure you want to delete this?")
+    var result = confirm("هل انت متأكد من حذف طلب تفعيل هذه الجمعية؟");
+    if(result == true) {
     let username=deleteBtn.parentElement.parentElement.dataset.id;
-    remove(ref(db,"Charities/"+username))
+    remove(ref(db,"Charities/"+username));
+     /* Delete user from account type table */
+  remove(ref(db,"AccountType/"+username))
     .then(()=>{
+        alert("تم حذف طلب تفعيل الجمعية");
         window.location.reload() 
-    }) 
+    });  }// for result
 });
 })
 let editButtons=document.querySelectorAll("#edit");
 editButtons.forEach(editBtn=>{
   editBtn.addEventListener("click",()=>{
+    var result1 = confirm("هل انت متأكد من تفعيل هذه الجمعية؟");
+    if(result1 == true) {
     let username=editBtn.parentElement.parentElement.dataset.id;
     const starCountRef = ref(db, 'Charities/' + username);
       var active="true";
@@ -148,18 +154,19 @@ editButtons.forEach(editBtn=>{
                 image:"",
                 description:"",
                 location:""
-               })/*.then(() => {
+               }).then(() => {
+                alert("تم تفعيل الجمعية بنجاح");
                 window.location.reload(); 
               }).catch((error) => {
                 print(error);
-              }); */
+              }); 
               // ...
             } else {
               // User is signed out
               // ...
             }
           })
-        });
+        });  }//for result
       });
 });
 });
