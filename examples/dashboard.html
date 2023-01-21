@@ -21,6 +21,7 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <script type="module" src="../src/signOut.js"></script>
   <script type="module" src="../src/index.js"></script>
+  <script type="module" src="../src/dashboard.js"></script>
 </head>
           
 
@@ -121,19 +122,19 @@
           
       </nav>
       <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
+      <!-- <div class="panel-header panel-header-lg">
         <a class="navbar-brand" href="#pablo">المستخدمين المسجلين</a>
         <canvas id="bigDashboardChart">
-          
         </canvas>
-      </div>
+      </div> -->
       <div class="content">
         <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-4">  <!--First card starts here-->
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Average Sales</h5>
-                <h4 class="card-title">Sold Products</h4>
+                <!-- <h5 class="card-category">Average Sales</h5> -->
+                <!-- <button style="size: 100;" id="bb"></button> -->
+                <h4 class="card-title">عدد الموفرين</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
@@ -148,21 +149,22 @@
               </div>
               <div class="card-body">
                 <div class="chart-area">
-                  <canvas id="lineChartExample"></canvas>
+                  <!-- <canvas id="lineChartExample"></canvas> -->
+                  <p style="font-size: 40px;" id="numberofsuppliers"></p>
                 </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                  <!-- <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated -->
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
+            </div>   
+          </div> <!-- First card ends here-->
+          <div class="col-lg-4 col-md-6"> <!-- second card starts here -->
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">This Year's Sales</h5>
-                <h4 class="card-title">All Sales</h4>
+                <!-- <h5 class="card-category">This Year's Sales</h5> -->
+                <h4 class="card-title">عدد الجمعيات</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
@@ -177,40 +179,102 @@
               </div>
               <div class="card-body">
                 <div class="chart-area">
-                  <canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
+                  <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
+                  <p style="font-size: 40px;" id="numberofcharities"></p>
                 </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+                  <!-- <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated -->
                 </div>
               </div>
             </div>
-          </div>
+          </div> <!-- end of the second card-->
           <div class="col-lg-4 col-md-6">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Email Statistics</h5>
-                <h4 class="card-title">24 Hours Performance</h4>
+                <!-- <h5 class="card-category">Email Statistics</h5> -->
+                <h4 class="card-title">عدد المستخدمين</h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
-                  <canvas id="barChartSimpleGradientsNumbers"></canvas>
+                  <!-- <canvas id="barChartSimpleGradientsNumbers"></canvas> -->
+                  <p style="font-size: 40px;" id="numberofusers"></p>
                 </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
+                  <!-- <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days -->
                 </div>
               </div>
             </div>
           </div>
+          <!-- fourth card starts here -->
+           <div class="col-lg-4">
+             <div class="card card-chart">
+            <div class="card-header">
+            <!-- <h5 class="card-category">Email Statistics</h5> -->
+           <h4 class="card-title">عدد العروض</h4>
+           </div>
+          <div class="card-body">
+          <div class="chart-area">
+        <!-- <canvas id="barChartSimpleGradientsNumbers"></canvas> -->
+        <p style="font-size: 40px;" id="numberofoffers"></p>
+         </div>
         </div>
-        
-          
+       <div class="card-footer">
+      <div class="stats">
+        <!-- <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days -->
+       </div>
+    </div>
+  </div>
+</div>
+<!-- fourth card ends here --> 
+           <!-- fifth card-->
+           <div class="col-lg-4 col-md-6">
+            <div class="card card-chart">
+           <div class="card-header">
+           <!-- <h5 class="card-category">Email Statistics</h5> -->
+          <h4 class="card-title">عدد العروض قيد التنفيذ</h4>
+          </div>
+         <div class="card-body">
+         <div class="chart-area">
+       <!-- <canvas id="barChartSimpleGradientsNumbers"></canvas> -->
+       <p style="font-size: 40px;" id="numberofwaiting"></p>
+        </div>
+       </div>
+      <div class="card-footer">
+     <div class="stats">
+       <!-- <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days -->
+      </div>
+   </div>
+ </div>
+</div>
+  <!-- fifth card-->
+  <!--sixth card-->
+  <div class="col-lg-4 col-md-6">
+    <div class="card card-chart">
+   <div class="card-header">
+   <!-- <h5 class="card-category">Email Statistics</h5> -->
+  <h4 class="card-title">اجمالي عدد مستخدمين التطبيق</h4>
+  </div>
+ <div class="card-body">
+ <div class="chart-area">
+<!-- <canvas id="barChartSimpleGradientsNumbers"></canvas> -->
+<p style="font-size: 40px;" id="totalnumber"></p>
+</div>
+</div>
+<div class="card-footer">
+<div class="stats">
+<!-- <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days -->
+</div>
+</div>
+</div>
+</div>
+  <!-- sixth card-->
+        </div>
         </div>
       </div>
-      
     </div>
   </div>
   <!--   Core JS Files   -->
