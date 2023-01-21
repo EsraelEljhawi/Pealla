@@ -99,11 +99,5 @@ const db6 = getDatabase();
 const al = new Map();
 const allRef= ref(db6, 'AccountType/');
 onValue(allRef, (snapshot) => {
-  const All = snapshot.val();
-  for (const all in All) {
-    //console.log(All[all]);
-    al.set(All[all]);
-  } // for ends here
-  //console.log(al.size);
-  document.getElementById("totalnumber").innerHTML = al.size;
+  document.getElementById("totalnumber").innerHTML = sup.size + char.size + use.size;
 }); // on value ends here
