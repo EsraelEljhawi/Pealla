@@ -101,3 +101,13 @@ const allRef= ref(db6, 'AccountType/');
 onValue(allRef, (snapshot) => {
   document.getElementById("totalnumber").innerHTML = sup.size + char.size + use.size;
 }); // on value ends here
+
+
+/* For date and time */
+function refreshTime() {
+  const timeDisplay = document.getElementById("time");
+  const dateString = new Date().toLocaleString();
+  const formattedString = dateString.replace(", ", " - ");
+  timeDisplay.textContent = formattedString;
+}
+  setInterval(refreshTime, 1000);
