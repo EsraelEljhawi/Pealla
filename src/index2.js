@@ -14,7 +14,8 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
 
 const form = document.querySelector(".signin");
-//const info = document.querySelector(".info");
+if (email!='paellamanager1@gmail.com') {
+  //const info = document.querySelector(".info");
 const auth = getAuth(app);
 
 const login = document.getElementById('login')
@@ -52,6 +53,9 @@ login.addEventListener('click',(e)=>{
     // reset form
     
 });
+  
+}
+
 //  const signout=document.getElementById('signout');
 //  signout.addEventListener('click',)
 
