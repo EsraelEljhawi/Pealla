@@ -4262,7 +4262,7 @@ Created using IcoMoon - icomoon.io
 .main-panel>.cardcontents {
   padding: 0 30px 30px;
   min-height: calc(100vh - 123px);
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .main-panel>.navbar {

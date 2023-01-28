@@ -16,7 +16,7 @@ import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
-/* Number of suppliers */
+/* Number of active suppliers */
 const db = getDatabase();
 const sup = new Map();
 const suppliersRef= ref(db, 'Suppliers/');
@@ -33,7 +33,7 @@ onValue(suppliersRef, (snapshot) => {
 
 
 
-/* Number of charities */
+/* Number of active charities */
 const db2 = getDatabase();
 const char = new Map();
 const charitiesRef= ref(db2, 'Charities/');
@@ -79,7 +79,7 @@ onValue(offersRef, (snapshot) => {
 }); // on value ends here
 
 
-/* Number of waitingOk elemnts */
+/* Number of waitingOk elements */
 const db5 = getDatabase();
 const wait = new Map();
 const waitingRef= ref(db5, 'WaitingOk/');
@@ -104,10 +104,55 @@ onValue(allRef, (snapshot) => {
 
 
 /* For date and time */
-function refreshTime() {
-  const timeDisplay = document.getElementById("time");
-  const dateString = new Date().toLocaleString();
-  const formattedString = dateString.replace(", ", " - ");
-  timeDisplay.textContent = formattedString;
-}
-  setInterval(refreshTime, 1000);
+// function refreshTime() {
+//   const timeDisplay = document.getElementById("time");
+//   const dateString = new Date().toLocaleString();
+//   const formattedString = dateString.replace(", ", " - ");
+//   timeDisplay.textContent = formattedString;
+// }
+//   setInterval(refreshTime, 1000);
+
+/* Number of inactive charities */
+const db7 = getDatabase();
+const char1 = new Map();
+const inactivecharitiesRef= ref(db7, 'Charities/');
+onValue(inactivecharitiesRef, (snapshot) => {
+  const iCharities = snapshot.val();
+  for (const icharities in iCharities) {
+    //console.log(iCharities[charities]);
+    if(iCharities[icharities].active=="false"){
+    char1.set(iCharities[icharities]);}
+  } // for ends here
+  //console.log(char1.size);
+  document.getElementById("numberofinactivecharities").innerHTML = char1.size;
+}); // on value ends here
+
+
+/* Number of inactive suppliers */
+const db8 = getDatabase();
+const sup1 = new Map();
+const inactivesuppliersRef= ref(db8, 'Suppliers/');
+onValue(inactivesuppliersRef, (snapshot) => {
+  const iSuppliers = snapshot.val();
+  for (const isuppliers in iSuppliers) {
+    //console.log(iSuppliers[suppliers]);
+    if(iSuppliers[isuppliers].active=="false"){
+    sup1.set(iSuppliers[isuppliers]);  }
+  } // for ends here
+  //console.log(sup1.size);
+  document.getElementById('numberofinactivesuppliers').innerHTML = sup1.size
+}); // on value ends here
+
+/* Number of complaints */
+const db9 = getDatabase();
+const comp = new Map();
+const complaintsRef= ref(db9, 'Complaints/');
+onValue(complaintsRef, (snapshot) => {
+  const Complaints = snapshot.val();
+  for (const complaints in Complaints) {
+    //console.log(Complaints[complaints]);
+    comp.set(Complaints[complaints]);
+  } // for ends here
+  //console.log(comp.size);
+  document.getElementById("numberofcomplaints").innerHTML = comp.size;
+}); // on value ends here
