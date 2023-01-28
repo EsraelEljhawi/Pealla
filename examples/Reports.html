@@ -1,0 +1,48 @@
+<!DOCTYPE html dir="rtl">
+    <head>
+        <title>
+          Paella Reports
+        </title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 80%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+        <script type="module" src="../src/reports.js"></script>
+    </head>
+    <body>
+        <center>
+       <h1>التقارير اليومية</h1>
+        <p>جدول طلبات المستخدمين</p>
+        <table>
+        <thead>
+            <th>اسم الموفر</th>
+            <th>الحالة</th>
+            <th>اسم الجمعية</th>
+            <th>خيارات الدفع</th>
+            <th>السعر</th>
+            <th>الكمية</th>
+            <th>رقم العرض</th>
+            <th>اسم العرض</th>
+            <th>اسم المستخدم</th>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+        <p>الاجمالي</p>
+        <p id="pricetag"></p>
+        </center>
+    </body>
+</html>
