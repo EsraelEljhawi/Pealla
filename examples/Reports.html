@@ -3,34 +3,63 @@
         <title>
           Paella Reports
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             table {
               font-family: arial, sans-serif;
               border-collapse: collapse;
               width: 80%;
+              margin: 0px auto;
             }
             
             td, th {
               border: 1px solid #dddddd;
               text-align: left;
               padding: 8px;
+              text-align: center;
             }
             
             tr:nth-child(even) {
               background-color: #dddddd;
+              text-align: center;
             }
+
+            h1, h2{
+              text-align: center;
+            }
+
+            .all{
+              text-align: right;
+              margin-right: 150px;
+              font-size: 20px;
+            }
+
+            .totaltag{
+              margin-left: 200px;
+            }
+
+            button{
+              background-color: #dddddd;
+              height: 40px; 
+              width: 80px; 
+              border: none; 
+              border-radius: 20px;
+              margin-left: 20px;
+            }
+
             </style>
         <script type="module" src="../src/reports.js"></script>
     </head>
     <body>
-        <center>
+      <button class="fa fa-print" onclick="window.print()"></button>
        <h1>التقارير اليومية</h1>
-        <p>جدول طلبات المستخدمين</p>
+       <h2 id="todayis"></h2>
+        <p class="all">جدول طلبات المستخدمين</p>
         <table>
         <thead>
             <th>اسم الموفر</th>
             <th>الحالة</th>
-            <th>اسم الجمعية</th>
+            <th>اسم الجمعية المتبرع لها</th>
             <th>خيارات الدفع</th>
             <th>السعر</th>
             <th>الكمية</th>
@@ -38,11 +67,25 @@
             <th>اسم العرض</th>
             <th>اسم المستخدم</th>
         </thead>
-        <tbody>
+        <tbody id="Userstable">
+          <!-- animated table starts here -->
         </tbody>
         </table>
-        <p>الاجمالي</p>
-        <p id="pricetag"></p>
-        </center>
+        <p class="totaltag">الاجمالي</p>
+        <p class="totaltag" id="pricetag"></p>
+        <p class="all">جدول طلبات الجمعيات</p>
+        <table>
+          <thead>
+              <th>اسم الموفر</th>
+              <th>الحالة</th>
+              <th>الكمية</th>
+              <th>رقم العرض</th>
+              <th>اسم العرض</th>
+              <th>اسم الجمعية</th>
+          </thead>
+          <tbody id="Charitytable">
+            <!-- animated table starts here -->
+          </tbody>
+          </table>
     </body>
 </html>

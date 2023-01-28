@@ -1,4 +1,5 @@
-let tableBody=document.querySelector("tbody");
+let tableBody=document.getElementById("Userstable");
+let secondtableBody =document.getElementById("Charitytable");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
 import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
@@ -58,4 +59,62 @@ if(Reports[reports].price!=null)
 tableBody.innerHTML+=tr;
 }
 }
+});
+
+
+onValue(reportsref, (snapshot) => {
+secondtableBody.innerHTML+="";
+const Reports = snapshot.val();
+for (const reports in Reports) {
+if(Reports[reports].price==null)
+{
+  let tr=`
+<tr data-id=${reports} id="tr">
+                    <td>
+                    ${Reports[reports].supplierName}
+                    </td>
+                    <td>
+                    ${Reports[reports].state}
+                    </td>
+                    <td>
+                    ${Reports[reports].Quantity}
+                    </td>
+                    <td>
+                    ${Reports[reports].iD}
+                    </td>
+                    <td>
+                    ${Reports[reports].name}
+                    </td>
+                    <td>
+                    ${Reports[reports].charity}
+                    </td>
+                  </tr>         
+`
+secondtableBody.innerHTML+=tr;
+}
+}
+});
+
+
+/* For date and time */
+var date = new Date();
+var months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
+  "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+];
+var days = ["اﻷحد", "اﻷثنين", "الثلاثاء", "اﻷربعاء", "الخميس", "الجمعة", "السبت"];
+var delDateString = days[date.getDay()] + ', ' + date.getDate() + ' ' + months[date.getMonth()] + ', ' + date.getFullYear();
+document.getElementById("todayis").innerHTML = delDateString;
+
+
+/* Total price in user's table */
+var sum = 0;
+onValue(reportsref, (snapshot) => {
+  const TotalPrice = snapshot.val();
+  for (const totalprice in TotalPrice) {
+    if(TotalPrice[totalprice].price!=null){
+  sum += TotalPrice[totalprice].price;
+    }
+  } 
+  console.log(sum);
+  document.getElementById("pricetag").innerHTML=sum;
 });
