@@ -15,9 +15,10 @@ import {getDatabase,ref,onValue,set,remove,update} from "https://www.gstatic.com
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    // get database
+    const db = getDatabase();
 
 /* Number of active suppliers */
-const db = getDatabase();
 const sup = new Map();
 const suppliersRef= ref(db, 'Suppliers/');
 onValue(suppliersRef, (snapshot) => {
@@ -34,9 +35,8 @@ onValue(suppliersRef, (snapshot) => {
 
 
 /* Number of active charities */
-const db2 = getDatabase();
 const char = new Map();
-const charitiesRef= ref(db2, 'Charities/');
+const charitiesRef= ref(db, 'Charities/');
 onValue(charitiesRef, (snapshot) => {
   const Charities = snapshot.val();
   for (const charities in Charities) {
@@ -50,9 +50,8 @@ onValue(charitiesRef, (snapshot) => {
 
 
 /* Number of users */
-const db3 = getDatabase();
 const use = new Map();
-const usersRef= ref(db3, 'Users/');
+const usersRef= ref(db, 'Users/');
 onValue(usersRef, (snapshot) => {
   const Users = snapshot.val();
   for (const users in Users) {
@@ -65,9 +64,8 @@ onValue(usersRef, (snapshot) => {
 
 
 /* Number of offers */
-const db4 = getDatabase();
 const off = new Map();
-const offersRef= ref(db4, 'Offers/');
+const offersRef= ref(db, 'Offers/');
 onValue(offersRef, (snapshot) => {
   const Offers = snapshot.val();
   for (const offers in Offers) {
@@ -80,9 +78,8 @@ onValue(offersRef, (snapshot) => {
 
 
 /* Number of waitingOk elements */
-const db5 = getDatabase();
 const wait = new Map();
-const waitingRef= ref(db5, 'WaitingOk/');
+const waitingRef= ref(db, 'WaitingOk/');
 onValue(waitingRef, (snapshot) => {
   const Waiting = snapshot.val();
   for (const waiting in Waiting) {
@@ -95,9 +92,8 @@ onValue(waitingRef, (snapshot) => {
 
 
 /* Total accounts number */
-const db6 = getDatabase();
 const al = new Map();
-const allRef= ref(db6, 'AccountType/');
+const allRef= ref(db, 'AccountType/');
 onValue(allRef, (snapshot) => {
   document.getElementById("totalnumber").innerHTML = sup.size + char.size + use.size;
 }); // on value ends here
@@ -113,9 +109,8 @@ onValue(allRef, (snapshot) => {
 //   setInterval(refreshTime, 1000);
 
 /* Number of inactive charities */
-const db7 = getDatabase();
 const char1 = new Map();
-const inactivecharitiesRef= ref(db7, 'Charities/');
+const inactivecharitiesRef= ref(db, 'Charities/');
 onValue(inactivecharitiesRef, (snapshot) => {
   const iCharities = snapshot.val();
   for (const icharities in iCharities) {
@@ -129,9 +124,8 @@ onValue(inactivecharitiesRef, (snapshot) => {
 
 
 /* Number of inactive suppliers */
-const db8 = getDatabase();
 const sup1 = new Map();
-const inactivesuppliersRef= ref(db8, 'Suppliers/');
+const inactivesuppliersRef= ref(db, 'Suppliers/');
 onValue(inactivesuppliersRef, (snapshot) => {
   const iSuppliers = snapshot.val();
   for (const isuppliers in iSuppliers) {
@@ -144,9 +138,8 @@ onValue(inactivesuppliersRef, (snapshot) => {
 }); // on value ends here
 
 /* Number of complaints */
-const db9 = getDatabase();
 const comp = new Map();
-const complaintsRef= ref(db9, 'Complaints/');
+const complaintsRef= ref(db, 'Complaints/');
 onValue(complaintsRef, (snapshot) => {
   const Complaints = snapshot.val();
   for (const complaints in Complaints) {
