@@ -85,6 +85,33 @@ signInWithEmailAndPassword(auth, email, password)
   remove(ref(db,"Suppliers/"+username));
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
+
+  /* Delete Supplier's Offers from Offers table */
+  const suppliersOffers= ref(db, 'Offers/');
+  onValue(suppliersOffers, (snapshot) => {
+    const Offers = snapshot.val();
+    for (const Offer in Offers) {
+      if(Offers[Offer].supplieruName==username){
+      remove(ref(db,"Offers/"+ Offer));
+    }
+    } // for ends here
+    
+  });
+
+  /* Delete Supplier's Offers from WaitingOK */
+  const DelWaitingOffers= ref(db, 'WaitingOk/');
+  onValue(DelWaitingOffers, (snapshot) => {
+    const waitingTTable = snapshot.val();
+    for (const WaitingTable in waitingTTable) {
+      if(waitingTTable[WaitingTable].supplierName==username){
+      remove(ref(db,"WaitingOk/"+ WaitingTable));
+    }
+    } // for ends here
+  });
+   
+
+  //alert("تم حذف عروض الموفر");
+  //alert("تم حذف عروض التأكيد");
   alert("تم حذف الموفر");
   window.location.reload();
      }).catch((error) => {
