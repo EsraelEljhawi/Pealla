@@ -56,15 +56,10 @@ onValue(offerRef, (snapshot) => {
  deleteButtons.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click",()=>{
        // confirm("are you sure you want to delete this?")
-       document.getElementById('pup').classList.add('opa');
         let id=deleteBtn.parentElement.parentElement.dataset.id;
         remove(ref(db,"Offers/"+id))
         .then(()=>{
-          setTimeout(function(){
-            document.getElementById('pup').classList.remove('opa');
             window.location.reload()
-            },3000);
-           // 
         })   
   });  
  })

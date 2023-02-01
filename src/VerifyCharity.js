@@ -91,15 +91,12 @@ deleteBtn.addEventListener("click",()=>{
     var result = confirm("هل انت متأكد من حذف طلب تفعيل هذه الجمعية؟");
     if(result == true) {
     let username=deleteBtn.parentElement.parentElement.dataset.id;
-    document.getElementById('pup').classList.add('opa');
     remove(ref(db,"Charities/"+username));
      /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username))
     .then(()=>{
-      setTimeout(function(){
-        document.getElementById('pup').classList.remove('opa');
-        window.location.reload()
-        },3000);
+        alert("تم حذف طلب تفعيل الجمعية");
+        window.location.reload() 
     });  }// for result
 });
 })
@@ -109,7 +106,6 @@ editButtons.forEach(editBtn=>{
     var result1 = confirm("هل انت متأكد من تفعيل هذه الجمعية؟");
     if(result1 == true) {
     let username=editBtn.parentElement.parentElement.dataset.id;
-    document.getElementById('pup').classList.add('opa');
     const starCountRef = ref(db, 'Charities/' + username);
       var active="true";
       update(ref(db, 'Charities/' + username),{
@@ -159,10 +155,8 @@ editButtons.forEach(editBtn=>{
                 description:"",
                 location:""
                }).then(() => {
-                setTimeout(function(){
-                  document.getElementById('pup').classList.remove('opa');
-                  window.location.reload()
-                  },3000);
+                alert("تم تفعيل الجمعية بنجاح");
+                window.location.reload(); 
               }).catch((error) => {
                 print(error);
               }); 

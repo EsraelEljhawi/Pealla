@@ -64,7 +64,7 @@ deleteBtn.addEventListener("click",()=>{
      let username=deleteBtn.parentElement.parentElement.dataset.id;
     //  remove(ref(db,"Suppliers/"+username))
     //  .then(()=>{
-      document.getElementById('pup').classList.add('opa');
+        
     //   const auth = getAuth();
        const starCountRef = ref(db, 'Suppliers/' + username);
        onValue(starCountRef, (snapshot) => {
@@ -108,10 +108,12 @@ signInWithEmailAndPassword(auth, email, password)
     }
     } // for ends here
   });
-  setTimeout(function(){
-    document.getElementById('pup').classList.remove('opa');
-    window.location.reload()
-    },3000);
+   
+
+  //alert("تم حذف عروض الموفر");
+  //alert("تم حذف عروض التأكيد");
+  alert("تم حذف الموفر");
+  window.location.reload();
      }).catch((error) => {
   // An error ocurred
   // ...
