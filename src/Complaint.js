@@ -78,11 +78,16 @@ onValue(complaintRef, (snapshot) => {
      let deleteButtons=document.querySelectorAll("#delete");
      deleteButtons.forEach(deleteBtn=>{
         deleteBtn.addEventListener("click",()=>{
+            let username=deleteBtn.parentElement.parentElement.dataset.id;
+            document.getElementById('pup').classList.add('opa');
            // confirm("are you sure you want to delete this?")
             let complaint=deleteBtn.parentElement.parentElement.parentNode.dataset.id;
             remove(ref(db,"Complaints/" + complaint))
             .then(()=>{
-                window.location.reload();
+                setTimeout(function(){
+                    document.getElementById('pup').classList.remove('opa');
+                    window.location.reload()
+                    },3000);
             })
             
       });

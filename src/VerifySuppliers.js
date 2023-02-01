@@ -108,13 +108,16 @@ deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
   var result = confirm("هل انت متأكد من حذف طلب تفعيل هذا الموفر؟");
     if(result == true){
+      document.getElementById('pup').classList.add('opa');
     let username=deleteBtn.parentElement.parentElement.dataset.id;
     remove(ref(db,"Suppliers/"+username));
     /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username))
     .then(()=>{  
-       alert("تم حذف طلب تفعيل الموفر");
+      setTimeout(function(){
+        document.getElementById('pup').classList.remove('opa');
         window.location.reload()
+        },3000);
     }); } // for result
 });
 })
@@ -123,6 +126,7 @@ editButtons.forEach(editBtn=>{
   editBtn.addEventListener("click",()=>{
     var result1 = confirm("هل انت متأكد من تفعيل هذا الموفر؟");
     if(result1 == true) {
+      document.getElementById('pup').classList.add('opa');
     let username=editBtn.parentElement.parentElement.dataset.id;
     const starCountRef = ref(db, 'Suppliers/' + username);
       var active="true";
@@ -181,8 +185,10 @@ editButtons.forEach(editBtn=>{
                 SignUpDate:SignUpDate,
                 LastSee:LastSee,
                }).then(() => {
-                alert("تم تفعيل الموفر بنجاح");
-                window.location.reload(); 
+                setTimeout(function(){
+                  document.getElementById('pup').classList.remove('opa');
+                  window.location.reload()
+                  },3000); 
               }).catch((error) => {
                 print(error);
               });

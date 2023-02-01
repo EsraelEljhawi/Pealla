@@ -66,22 +66,23 @@ deleteBtn.addEventListener("click",()=>{
         const data = snapshot.val();
         var email=data.email;
         var password=data.password;
-        console.log(email)
-        console.log(password)
         const auth = getAuth();
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     const auth = getAuth();
-
+    document.getElementById('pup').classList.add('opa');
     deleteUser(user).then(() => {
   // User deleted.
   remove(ref(db,"Charities/"+username))
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
-  alert("تم حذف الجمعية");
-  window.location.reload();
+  setTimeout(function(){
+    document.getElementById('pup').classList.remove('opa');
+    window.location.reload()
+    },3000);
+   // 
      }).catch((error) => {
   // An error ocurred
   // ...

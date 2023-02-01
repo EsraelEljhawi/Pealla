@@ -79,6 +79,7 @@ deleteBtn.addEventListener("click",()=>{
      let username=deleteBtn.parentElement.parentElement.dataset.id;
        const starCountRef = ref(db, 'Users/' + username);
        onValue(starCountRef, (snapshot) => {
+        document.getElementById('pup').classList.add('opa');
         const data = snapshot.val();
         var email=data.email;
         var password=data.password;
@@ -91,14 +92,16 @@ signInWithEmailAndPassword(auth, email, password)
     const user = userCredential.user;
     console.log(user);
     const auth = getAuth();
-
+  
     deleteUser(user).then(() => {
   // User deleted.
   remove(ref(db,"Users/"+username))
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
-  alert("تم حذف المستخدم");
-  window.location.reload();
+  setTimeout(function(){
+    document.getElementById('pup').classList.remove('opa');
+    window.location.reload()
+    },3000);
      }).catch((error) => {
   // An error ocurred
   // ...
