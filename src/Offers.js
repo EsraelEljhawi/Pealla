@@ -55,16 +55,26 @@ onValue(offerRef, (snapshot) => {
  let deleteButtons=document.querySelectorAll("#delete");
  deleteButtons.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click",()=>{
-       // confirm("are you sure you want to delete this?")
-        let id=deleteBtn.parentElement.parentElement.dataset.id;
-        remove(ref(db,"Offers/"+id))
-        .then(()=>{
-            window.location.reload()
-        })   
-  });  
- })
+      document.getElementById('Quastion').classList.add('opa');
+  var yes=document.getElementById('yes');
+  yes.addEventListener("click",()=>{
+    document.getElementById('Quastion').classList.remove('opa');
+    document.getElementById('pup').classList.add('opa');
+    remove(ref(db,"Offers/"+id))
+    .then(()=>{
+      setTimeout(function(){
+        document.getElementById('pup').classList.remove('opa');
+        window.location.reload()
+        },3000);
+    })   
+});  
+})
 
 
 
 
 });
+  })
+       // confirm("are you sure you want to delete this?")
+        let id=deleteBtn.parentElement.parentElement.dataset.id;
+       
