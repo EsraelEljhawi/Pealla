@@ -99,6 +99,22 @@ signInWithEmailAndPassword(auth, email, password)
   remove(ref(db,"Users/"+username))
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
+
+
+
+   /* Delete Users's Offers from WaitingOK */
+   const DelWaitingOffers= ref(db, 'WaitingOk/');
+   onValue(DelWaitingOffers, (snapshot) => {
+     const waitingTTable = snapshot.val();
+     for (const WaitingTable in waitingTTable) {
+       if(waitingTTable[WaitingTable].user==username){
+       remove(ref(db,"WaitingOk/"+ WaitingTable));
+     }
+     } // for ends here
+   });
+
+
+
   setTimeout(function(){
     document.getElementById('pup').classList.remove('opa');
     window.location.reload()
