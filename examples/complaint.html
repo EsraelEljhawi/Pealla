@@ -167,6 +167,21 @@
                       
                     </tbody> <!--TO HERE TO EMPTY THE TABLE-->
                   </table>
+                  <div class="carda" id="Ok" >
+                    <img src="../assets/img/call-center-agent (1).png">
+                    <h6>هل انت متاكد من اتمام العملية ؟</h6>
+                    <table class="table">
+                      <tr>
+                        
+                        <td> <button id="no"class="btn btn-block" style="background-color: #D83A56;">لا الغي الامر</button></td>
+                        <td> <button id="yes"class="btn btn-block" style="background-color: #4E944F;">نعم,اكمل العملية </button></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="carda" id="pup">
+                    <img src="../assets/img/call-center-agent (1).png">
+                    <h2>تمت العملية بنجاح</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -174,6 +189,14 @@
 
         </div>
       </div>
+      <script>
+        var no=document.getElementById('no')
+      no.addEventListener('click',()=>{
+        document.getElementById('Ok').classList.remove('opa');
+      })
+
+      </script>
+      
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>

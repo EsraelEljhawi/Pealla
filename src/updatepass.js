@@ -15,6 +15,7 @@ const firebaseConfig = {
   const reset=document.getElementById('reset');
   const pass=document.getElementById('newpass');
   reset.onclick=function(){
+    
     var email = document.getElementById("emailX").value;
     var password = document.getElementById("oldpass").value;
     
@@ -25,6 +26,12 @@ const firebaseConfig = {
         const user = auth.currentUser; 
         console.log(user)
         updatePassword(user, newPassword).then(() => {
+          document.getElementById('pup').classList.add('opa');
+          setTimeout(function(){
+            
+            document.getElementById('pup').classList.remove('opa');
+            window.location.reload()
+            },3000);
           // Update successful.
         }).catch((error) => {
           // An error ocurred

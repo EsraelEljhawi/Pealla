@@ -74,8 +74,10 @@ let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
     
-    var result = confirm("هل انت متأكذ من حذف هذا المستخدم؟");
-     if(result == true){
+  document.getElementById('Quastion').classList.add('opa');
+  var yes=document.getElementById('yes');
+  yes.addEventListener("click",()=>{
+    document.getElementById('Quastion').classList.remove('opa');
      let username=deleteBtn.parentElement.parentElement.dataset.id;
        const starCountRef = ref(db, 'Users/' + username);
        onValue(starCountRef, (snapshot) => {
@@ -91,14 +93,16 @@ signInWithEmailAndPassword(auth, email, password)
     const user = userCredential.user;
     console.log(user);
     const auth = getAuth();
-
+    document.getElementById('pup').classList.add('opa');
     deleteUser(user).then(() => {
   // User deleted.
   remove(ref(db,"Users/"+username))
   /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username));
-  alert("تم حذف المستخدم");
-  window.location.reload();
+  setTimeout(function(){
+    document.getElementById('pup').classList.remove('opa');
+    window.location.reload()
+    },3000);
      }).catch((error) => {
   // An error ocurred
   // ...
@@ -111,7 +115,7 @@ signInWithEmailAndPassword(auth, email, password)
   });
       });
     }// end of result
-    }); 
+)}); 
   
   });
 

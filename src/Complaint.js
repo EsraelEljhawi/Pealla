@@ -80,9 +80,13 @@ onValue(complaintRef, (snapshot) => {
         deleteBtn.addEventListener("click",()=>{
            // confirm("are you sure you want to delete this?")
             let complaint=deleteBtn.parentElement.parentElement.parentNode.dataset.id;
+            document.getElementById('pup').classList.add('opa');
             remove(ref(db,"Complaints/" + complaint))
             .then(()=>{
-                window.location.reload();
+                setTimeout(function(){
+                    document.getElementById('pup').classList.remove('opa');
+                    window.location.reload()
+                    },3000);
             })
             
       });

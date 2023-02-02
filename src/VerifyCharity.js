@@ -88,23 +88,30 @@ else{
 let deleteButtons=document.querySelectorAll("#delete");
 deleteButtons.forEach(deleteBtn=>{
 deleteBtn.addEventListener("click",()=>{
-    var result = confirm("هل انت متأكد من حذف طلب تفعيل هذه الجمعية؟");
-    if(result == true) {
+  document.getElementById('Quastion').classList.add('opa');
+  var yes=document.getElementById('yes');
+  yes.addEventListener("click",()=>{
+    document.getElementById('Quastion').classList.remove('opa');
     let username=deleteBtn.parentElement.parentElement.dataset.id;
+    document.getElementById('pup').classList.add('opa');
     remove(ref(db,"Charities/"+username));
      /* Delete user from account type table */
   remove(ref(db,"AccountType/"+username))
     .then(()=>{
-        alert("تم حذف طلب تفعيل الجمعية");
-        window.location.reload() 
+      setTimeout(function(){
+        document.getElementById('pup').classList.remove('opa');
+        window.location.reload()
+        },3000);
     });  }// for result
-});
+)});
 })
 let editButtons=document.querySelectorAll("#edit");
 editButtons.forEach(editBtn=>{
   editBtn.addEventListener("click",()=>{
-    var result1 = confirm("هل انت متأكد من تفعيل هذه الجمعية؟");
-    if(result1 == true) {
+    document.getElementById('Quastion').classList.add('opa');
+  var yes=document.getElementById('yes');
+  yes.addEventListener("click",()=>{
+    document.getElementById('Quastion').classList.remove('opa');
     let username=editBtn.parentElement.parentElement.dataset.id;
     const starCountRef = ref(db, 'Charities/' + username);
       var active="true";
@@ -126,11 +133,12 @@ editButtons.forEach(editBtn=>{
          .then((userCredential) => {
          // Signed in 
          const user = userCredential.user;
+         document.getElementById('pup').classList.add('opa');
          // update displayname
          updateProfile(auth.currentUser, {
            displayName: emuser, 
          }).then(() => {
-           console.log('updated') 
+        
          }).catch((error) => {
            console.log(error);
          });
@@ -155,8 +163,10 @@ editButtons.forEach(editBtn=>{
                 description:"",
                 location:""
                }).then(() => {
-                alert("تم تفعيل الجمعية بنجاح");
-                window.location.reload(); 
+                setTimeout(function(){
+                  document.getElementById('pup').classList.remove('opa');
+                  window.location.reload()
+                  },3000);
               }).catch((error) => {
                 print(error);
               }); 
@@ -167,7 +177,7 @@ editButtons.forEach(editBtn=>{
             }
           })
         });  }//for result
-      });
+)});
 });
 });
 //
