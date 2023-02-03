@@ -19,33 +19,24 @@
        
       <div class="edit">
         <input type="email" id="email" required>
-        <span></span>
         <label>البريد الالكتروني</label>
+      <span style="color: rgb(222, 28, 28); display: none;" id="emailmessage">لا يمكنك ترك الحقل فارغا</span>
+      <span style="color: rgb(222, 28, 28); display: none;" id="emailformmessage">خطأ في صيغة ادخال البريد الالكتروني</span>
+      <span style="color: rgb(222, 28, 28); display: none;" id="emailwrongmessage">البريد الالكتروني غير صحيح</span>
       </div>
      
       <div class="edit">
         <input type="password" id="password" required> <!--changed id from pass to password-->
-        <span></span>
         <label>كلمة المرور</label>
+        <span style="color: rgb(222, 28, 28); display: none;" id="passwordmessage">لا يمكنك ترك الحقل فارغا</span>
+        <span style="color: rgb(222, 28, 28); display: none;" id="passwordwrongmessage">كلمة المرور غير صحيحة</span>
       </div> 
+
       <button class="submit"  id="login">تسجيل الدخول</button>
       <div>
         <span style="color: rgb(222, 28, 28);" id="error_message" class="txt_field"></span>
       </div>
        </div>
-<!--
-       <div id="logged-in">
-        <h3>YOURE LOGGED IN!</h3>
-        <button onclick="logout()">Log out</button>
-       </div> -->
-       
     </div>
-
-     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-     
-     
-
   </body>
-
-
 </html>

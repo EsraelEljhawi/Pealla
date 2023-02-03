@@ -14,18 +14,60 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
 
 const form = document.querySelector(".signin");
-if (email!='paellamanager1@gmail.com') {
+//if (email!='paellamanager1@gmail.com') {
   //const info = document.querySelector(".info");
 const auth = getAuth(app);
 
 const login = document.getElementById('login')
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
+// const email = document.getElementById("email").value;
+// const password = document.getElementById("password").value;
+//const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 login.addEventListener('click',(e)=>{
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+  var m1 = document.getElementById("emailmessage");
+  var m2 = document.getElementById("passwordmessage");
+  var m3 = document.getElementById("emailformmessage");
+  var m4 = document.getElementById('passwordwrongmessage');
+  var m5 = document.getElementById('emailwrongmessage');
   
+  if(email == "" && password == "")
+  {
+  m1.style["display"] = "block";
+  m2.style["display"] = "block";
+  return false;
+  }
+  if(email == "")
+  {
+  m1.style["display"] = "block";
+  m2.style["display"] = "none";
+  return false;
+  }
+  // if(res.test(String(email).toLowerCase())==false){
+  //   m1.style["display"] = "none";
+  //   m3.style["display"] = "block";
+  //   return false;
+  // }
+  // if(res.test(String(email).toLowerCase())==true){
+  //   m1.style["display"] = "none";
+  //   m3.style["display"] = "none";
+  //   return false;
+  //   }
+  if(password == "")
+  {
+  m1.style["display"] = "none";
+  m2.style["display"] = "block";
+  return false;
+  }
+  else
+  {
+  m1.style["display"] = "none";
+  m2.style["display"] = "none";
+  m3.style["display"] = "none";
+  m4.style["display"] = "none";
+  m5.style["display"] = "none";
+  if(email=='paellamanager1@gmail.com') {
      signInWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
        // Signed in 
@@ -36,25 +78,17 @@ login.addEventListener('click',(e)=>{
      .catch((error) => {
             // Handle Errors here.
            // alert(error); 
+           m4.style["display"] = "block";
            document.getElementById('error_message').innerHTML = error;
-            let errorCode = error.code;
-            let errorMessage = error.message; 
-            /*let html = `<p><b>Ooops!</b> Could not sign you in!</p>
-                        <ol>
-                            <li>You <b>forgot your password</b>; contact the admin or</li>
-                            <li>Your email <b>is not registered</b> to use this App.</li>
-                        </ol>`;
-            
-            info.innerHTML = html;
-            setTimeout(() => {
-                info.innerHTML = ``;
-            }, 8000); */
         });
     // reset form
-    
+      }
+       else m5.style["display"] = "block";
+      // document.getElementById('passwordmessage').innerHTML = "البريد الالكتروني غير صحيح";
+      } // else ends here
 });
   
-}
+//} // for if
 
 //  const signout=document.getElementById('signout');
 //  signout.addEventListener('click',)
