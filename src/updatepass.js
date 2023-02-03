@@ -16,7 +16,7 @@ const firebaseConfig = {
   const pass=document.getElementById('newpass');
   var m1 = document.getElementById('emptymessage');
   var m2 = document.getElementById('shortpassmessage');
-  var m3 = document.getElementById('no');
+  //var m3 = document.getElementById('no');
   reset.onclick=function(){
     
     var pass=document.getElementById('newpass').value;
@@ -71,7 +71,12 @@ const firebaseConfig = {
               setTimeout(() => {
                   info.innerHTML = ``;
               }, 8000); */
-              m3.style["display"] = "block";
+              //m3.style["display"] = "block";
+              if(error == "FirebaseError: Firebase: Error (auth/wrong-password)."){
+              document.getElementById("no").innerHTML = "كلمة المرور الحالية غير صحيحة";
+            } else if(error == "FirebaseError: Firebase: Error (auth/user-not-found)."){
+              document.getElementById("noemail").innerHTML = "البريد الالكتروني غير صحيح";
+            }
           });
     //
         } // else endds here
