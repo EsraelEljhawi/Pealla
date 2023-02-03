@@ -14,11 +14,26 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig);
   const reset=document.getElementById('reset');
   const pass=document.getElementById('newpass');
+  var m1 = document.getElementById('emptymessage');
+  var m2 = document.getElementById('shortpassmessage');
+  var m3 = document.getElementById('no');
   reset.onclick=function(){
     
+    var pass=document.getElementById('newpass').value;
     var email = document.getElementById("emailX").value;
     var password = document.getElementById("oldpass").value;
-    
+    if(email == "" || pass == "" || password == ""){
+      m1.style["display"] = "block";
+      return false;
+    }
+    if(pass != "" && String(pass).length < 8){
+      m1.style["display"] = "none";
+      m2.style["display"] = "block";
+      return false;
+    }
+    else {
+      m1.style["display"] = "none";
+      m2.style["display"] = "none";
     const auth = getAuth(app);
        signInWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
@@ -43,9 +58,9 @@ const firebaseConfig = {
        .catch((error) => {
               // Handle Errors here.
              // alert(error); 
-             document.getElementById('error_message').innerHTML = error;
-              let errorCode = error.code;
-              let errorMessage = error.message; 
+            //  document.getElementById('error_message').innerHTML = error;
+            //   let errorCode = error.code;
+            //   let errorMessage = error.message; 
               /*let html = `<p><b>Ooops!</b> Could not sign you in!</p>
                           <ol>
                               <li>You <b>forgot your password</b>; contact the admin or</li>
@@ -56,7 +71,8 @@ const firebaseConfig = {
               setTimeout(() => {
                   info.innerHTML = ``;
               }, 8000); */
+              m3.style["display"] = "block";
           });
     //
-   
+        } // else endds here
   }
