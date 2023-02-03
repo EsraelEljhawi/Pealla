@@ -159,7 +159,7 @@ editButtons.forEach(editBtn=>{
               // const starCountRef = ref(db, 'Suppliers/' + username);
                 update(ref(db, 'Charities/' + username),{
                  uid:uid,
-                image:"https://firebasestorage.googleapis.com/v0/b/pealla-499cf.appspot.com/o/shop.png?alt=media&token=1d9b1269-f81e-4501-b374-2a317b8afac5",
+                image:"https://firebasestorage.googleapis.com/v0/b/pealla-499cf.appspot.com/o/volunteer%20(3).png?alt=media&token=c7e9d44c-7f6f-4f4b-8d0e-5e07e16edfbb",
                 description:"",
                 location:""
                }).then(() => {
