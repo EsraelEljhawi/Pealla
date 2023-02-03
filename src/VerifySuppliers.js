@@ -180,7 +180,7 @@ editButtons.forEach(editBtn=>{
                 update(ref(db, 'Suppliers/' + username),{
                  uid:uid,
                 
-                image:"",
+                image:"https://firebasestorage.googleapis.com/v0/b/pealla-499cf.appspot.com/o/shop.png?alt=media&token=1d9b1269-f81e-4501-b374-2a317b8afac5",
                  description:"",
                 deliveryOption:"",
                paymentOption:"",
