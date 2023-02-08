@@ -9,7 +9,7 @@ body{
   direction: rtl;
   margin: 0;
   padding: 0;
-  background: #ffbe9d;
+  background-image: url("../img/");
   height: 100vh;
   overflow: hidden;
 }
