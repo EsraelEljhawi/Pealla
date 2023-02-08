@@ -53,12 +53,14 @@ onValue(offerRef, (snapshot) => {
   
   //delete data 
  let deleteButtons=document.querySelectorAll("#delete");
+ 
  deleteButtons.forEach(deleteBtn=>{
     deleteBtn.addEventListener("click",()=>{
       document.getElementById('Quastion').classList.add('opa');
   var yes=document.getElementById('yes');
   yes.addEventListener("click",()=>{
     document.getElementById('Quastion').classList.remove('opa');
+    let id=deleteBtn.parentElement.parentElement.dataset.id;
     document.getElementById('pup').classList.add('opa');
     remove(ref(db,"Offers/"+id))
     .then(()=>{
@@ -76,5 +78,5 @@ onValue(offerRef, (snapshot) => {
 });
   })
        // confirm("are you sure you want to delete this?")
-        let id=deleteBtn.parentElement.parentElement.dataset.id;
+        
        
