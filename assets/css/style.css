@@ -9,9 +9,10 @@ body{
   direction: rtl;
   margin: 0;
   padding: 0;
-  background-image: url("../img/");
+  background-image: url("https://img.freepik.com/premium-photo/white-office-desk-table-flat-lay_14098-406.jpg?w=1800");
   height: 100vh;
   overflow: hidden;
+  
 }
 .center{
   position: absolute;
