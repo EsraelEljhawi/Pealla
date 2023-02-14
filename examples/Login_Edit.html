@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="rtl">
+	<head>
+
+<title>Login</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link rel="stylesheet" href="CSS_SIN_LOG.css">
+	</head>
+	<body onload="alert(' تسجيل الدخول ' )">
+        <h1>نظام إلكتروني لإدارة الطعام المهدور</h1>
+		<div class="Sing">
+			<h2>تسجيل الدخول</h2>
+			<form name="EntEmail" action="Login_DB.php" method="post">
+				
+				<label for="UserName">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="UserName" placeholder="إسم المستخدم" id="username" >
+                <!----------------------------->
+                <label for="Password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="Password" placeholder="كلمة المرور" id="password">
+                <!----------------------------->
+				  <table>
+                    <tr>
+                    <td><p class="p_acount">ليس لديك حساب؟</p></td>
+                    <td><a href="addEmp.html">سجل الأن</a> </td>
+                    </tr>
+                    </table>
+				<!----------------------------->
+				<input type="submit" name="Login" value="تسجيل الدخول" onclick="return check_Add()" >
+			</form>
+		</div>	
+		<script>
+		function check_Add() {
+            var UserName = document.EntEmail.UserName.value
+            var Password= document.EntEmail.Password.value
+			var Login= document.EntEmail.Login.value
+
+            if (UserName == ""){
+            alert("Enter Your Name")
+            return false
+            }
+            else
+            if (Password == ""){
+            alert("Enter Your Password")
+            return false
+            }
+            }
+		</script>
+    </body>
+</html>

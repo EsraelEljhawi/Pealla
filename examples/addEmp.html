@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html dir="rtl">
+	<head>
+
+<title>التسجيل</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link rel="stylesheet" href="CSS_SIN_LOG.css">
+	</head>
+	<body>
+        <h1>نظام إلكتروني لإدارة الطعام المهدور</h1>
+		<div class="Sing">
+			<h2>التسجيل لإدارة النظام</h2>
+			<form name="EntEmail" action="Insert.php" method="post">
+                <!----------------------------->
+				<label for="UserName">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="UserName" placeholder="إسم المسخدم" id="username" >
+                <!----------------------------->
+                <label for="Email">
+                <i class="fa fa-envelope"></i>
+                </label>
+                <input type="email" name="Email" placeholder="الإيميل" id="Email" onblur="isCheckEmail(this.value)">
+                <!----------------------------->
+                <label for="ID_User">
+					<i class="fas fa-phone"></i>
+				</label>
+				<input type="text" name="ID_User" placeholder="رقم الهاتف المحمول" id="ID_User" >
+                <!----------------------------->
+                <label for="Password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="Password" placeholder="كلمة المرور" id="password" >
+                <!----------------------------->
+                    <table>
+                    <tr>
+                    <td><p class="p_acount">هل تملك حساب بالفعل؟</p></td>
+                    <td><a href="Login_Edit.html">تسجيل الدخول</a></td>
+                    </tr>
+                    </table>
+                <!----------------------------->
+				<input type="submit" value="تسجيــل" onclick="return check_Add()">
+
+			</form>
+		</div>
+
+        <script>
+            function isCheckEmail(inputValue) {
+                var foundAt = false
+                var foundDot = false
+                var atPosition = -1
+                var dotPosition = -1
+                // Step through each character of the e-mail address and set a flag when (and if) an @ sign and a dot are detected.
+                for (var i = 0; i <= inputValue.length; i++) {
+                if (inputValue.charAt(i) == "@") {
+                foundAt = true
+                atPosition = i
+                }
+                else if (inputValue.charAt(i) == ".") {
+                foundDot = true
+                dotPosition = i
+                }
+                }
+                // If both an @ symbol and a dot were found, and in the correct order (@ must come first)...
+                if ((dotPosition == -1) ||(atPosition == -1) || (atPosition > dotPosition)) {
+                // The e-mail address is invalid
+                alert("Sorry, you entered an invalid e-mail address. Please try again.")
+                return false } }
+        
+            function check_Add() {
+            var ID_User = document.EntEmail.ID_User.value
+            var UserName = document.EntEmail.UserName.value
+            var Email = document.EntEmail.Email.value
+            var Password= document.EntEmail.Password.value
+
+            if (ID_User == ""){
+            alert("أدخل رقم الهاتف")
+            return false
+            }
+            else
+            if (UserName == ""){
+            alert("أدخل إسم المستخدم")
+            return false
+            }
+            else
+            if (Email == ""){
+            alert("أدخل الإيميل")
+            return false
+            }
+            else
+            if (Password == ""){
+            alert("أدخل كلمة المرور")
+            return false
+            }
+            else
+            if (Password.length < 8){
+            alert("كلمة المرور ضعيفة يجب أن تتكون من 8 أرقام على الأقل")
+            return false
+            }
+            }
+        
+        </script>
+        
+        
+
+    </body>
+</html>
