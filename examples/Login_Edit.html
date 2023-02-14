@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html>
 	<head>
 
 <title>Login</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
         <link rel="stylesheet" href="CSS_SIN_LOG.css">
 	</head>
-	<body onload="alert(' تسجيل الدخول ' )">
-        <h1>نظام إلكتروني لإدارة الطعام المهدور</h1>
+	<body onload="alert('Sign up' )">
+        <h1>Food waste management system</h1>
 		<div class="Sing">
-			<h2>تسجيل الدخول</h2>
+			<h2>Sign in</h2>
 			<form name="EntEmail" action="Login_DB.php" method="post">
 				
 				<label for="UserName">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="UserName" placeholder="إسم المستخدم" id="username" >
+				<input type="text" name="UserName" placeholder="Username" id="username" >
                 <!----------------------------->
                 <label for="Password">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="Password" placeholder="كلمة المرور" id="password">
+				<input type="password" name="Password" placeholder="Password" id="password">
                 <!----------------------------->
 				  <table>
                     <tr>
-                    <td><p class="p_acount">ليس لديك حساب؟</p></td>
-                    <td><a href="addEmp.html">سجل الأن</a> </td>
+                    <td><p class="p_acount">Don't have an account?</p></td>
+                    <td><a href="addEmp.html">Sign up</a> </td>
                     </tr>
                     </table>
 				<!----------------------------->
-				<input type="submit" name="Login" value="تسجيل الدخول" onclick="return check_Add()" >
+				<input type="submit" name="Login" value="Sign in" onclick="return check_Add()" >
 			</form>
 		</div>	
 		<script>
