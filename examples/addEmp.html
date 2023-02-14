@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html>
 	<head>
 
 <title>التسجيل</title>
@@ -7,39 +7,39 @@
         <link rel="stylesheet" href="CSS_SIN_LOG.css">
 	</head>
 	<body>
-        <h1>نظام إلكتروني لإدارة الطعام المهدور</h1>
+        <h1>Food waste managemnt system</h1>
 		<div class="Sing">
-			<h2>التسجيل لإدارة النظام</h2>
+			<h2>Admin Sign up</h2>
 			<form name="EntEmail" action="Insert.php" method="post">
                 <!----------------------------->
 				<label for="UserName">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="UserName" placeholder="إسم المسخدم" id="username" >
+				<input type="text" name="UserName" placeholder="Username" id="username" >
                 <!----------------------------->
                 <label for="Email">
                 <i class="fa fa-envelope"></i>
                 </label>
-                <input type="email" name="Email" placeholder="الإيميل" id="Email" onblur="isCheckEmail(this.value)">
+                <input type="email" name="Email" placeholder="Email" id="Email" onblur="isCheckEmail(this.value)">
                 <!----------------------------->
                 <label for="Phone">
 					<i class="fas fa-phone"></i>
 				</label>
-				<input type="text" name="Phone" placeholder="رقم الهاتف المحمول" id="Phone" >
+				<input type="text" name="Phone" placeholder="Phone number" id="Phone" >
                 <!----------------------------->
                 <label for="Password">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="Password" placeholder="كلمة المرور" id="password" >
+				<input type="password" name="Password" placeholder="Password" id="password" >
                 <!----------------------------->
                     <table>
                     <tr>
-                    <td><p class="p_acount">هل تملك حساب بالفعل؟</p></td>
-                    <td><a href="Login_Edit.html">تسجيل الدخول</a></td>
+                    <td><p class="p_acount">Already have an account?</p></td>
+                    <td><a href="Login_Edit.html">Sign in</a></td>
                     </tr>
                     </table>
                 <!----------------------------->
-				<input type="submit" value="تسجيــل" onclick="return check_Add()">
+				<input type="submit" value="Sign up" onclick="return check_Add()">
 
 			</form>
 		</div>
