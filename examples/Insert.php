@@ -8,10 +8,10 @@ $UserEmail = mysqli_real_escape_string($link, $_REQUEST['Email']);
 $Phone = mysqli_real_escape_string ($link, $_REQUEST['Phone']);
 $Password = mysqli_real_escape_string($link, $_REQUEST['Password']);
 
-$sql = "INSERT INTO `sing`(`UserName`,`Email`, `Phone`, `Password`) VALUES ('$UserName','$UserEmail', '$Phone', '$Password')";
+$sql = "INSERT INTO `admins`(`UserName`,`Email`, `Phone`, `Password`) VALUES ('$UserName','$UserEmail', '$Phone', '$Password')";
 
 if (mysqli_query($link, $sql)){
-header("location: dashboard.html");
+header("location:Login_Edit.html");
 }
 else
 {
