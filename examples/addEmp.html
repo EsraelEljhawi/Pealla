@@ -30,7 +30,7 @@
                 <label for="Password">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="Password" placeholder="Password" id="password" >
+				<input type="password" name="Password" placeholder="Password" id="password" onblur="isCheckPassword(this.value)">
                 <!----------------------------->
                     <table>
                     <tr>
@@ -75,6 +75,12 @@
                         alert("رقم الهاتف غير صحيح")
                     }
                 } 
+            }
+
+            function isCheckPassword(inputValue){
+               if(inputValue.length < 8){
+                alert("كلمة السر ضعيفة")
+               }
             }
         
             function check_Add() {
