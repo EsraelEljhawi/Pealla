@@ -10,7 +10,7 @@
         <h1>Food waste managemnt system</h1>
 		<div class="Sing">
 			<h2>Admin Sign up</h2>
-			<form name="EntEmail" action="Insert.php" method="post">
+			<form name="EntEmail" action="Insert.php" method="post"> 
                 <!----------------------------->
 				<label for="UserName">
 					<i class="fas fa-user"></i>
@@ -25,7 +25,7 @@
                 <label for="Phone">
 					<i class="fas fa-phone"></i>
 				</label>
-				<input type="text" name="Phone" placeholder="Phone number" id="Phone" >
+				<input type="text" name="Phone" placeholder="Phone number" id="Phone" onblur="isCheckPhone(this.value)">
                 <!----------------------------->
                 <label for="Password">
 					<i class="fas fa-lock"></i>
@@ -64,8 +64,18 @@
                 // If both an @ symbol and a dot were found, and in the correct order (@ must come first)...
                 if ((dotPosition == -1) ||(atPosition == -1) || (atPosition > dotPosition)) {
                 // The e-mail address is invalid
-                alert("Sorry, you entered an invalid e-mail address. Please try again.")
+                alert("البريد الالكتروني غير صحيح")
                 return false } }
+
+            function isCheckPhone(inputValue){
+                if(inputValue.length != 10)
+                {
+                    if(String(inputValue).substring(0,3) != "091" || String(inputValue).substring(0,3) != "092" || String(inputValue).substring(0,3) != "094")
+                    {
+                        alert("رقم الهاتف غير صحيح")
+                    }
+                } 
+            }
         
             function check_Add() {
             var ID_User = document.EntEmail.ID_User.value
